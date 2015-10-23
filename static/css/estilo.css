@@ -1,0 +1,68 @@
+/* Estrutura Principal */
+body{
+    margin:0px;
+    padding:0px;
+    font:bold 14px Arial, Verdana;
+    position:relative;
+}
+
+section{
+    margin:auto;
+    width:100%;
+    height:auto;
+}
+
+header{    
+    height:80px;
+    margin: 0%;
+    background:#303030;
+}
+
+nav{
+    font-weight:bold;
+    margin:0 auto;
+    height:42px;
+    /*padding-right: 40px;
+    padding-top: 10px;*/
+}
+
+article{
+    text-align: center;
+}
+
+footer{ 
+    height: 80px; 
+    margin:0%;
+    /*bottom: 0%; 
+    padding:0%;*/
+    font-size: smaller;    
+    text-align: center;
+    color:#fff;   
+    background:#303030;
+}
+
+/* Menu */
+.ui.dropdown{
+    float: right;
+    margin-right: 10px;
+    margin-top: 25px;
+    color: #fff;
+}
+
+/* Formulário */
+.ui.form{
+    padding: 50px 0px 50px 0px;
+}
+.field{
+    text-align: left;
+}
+
+.ui.fluid.dropdown{
+    margin-right: 0;
+    margin-top: 0;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}

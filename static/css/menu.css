@@ -1,0 +1,103 @@
+ul#menu{
+float:right;
+height:42px;
+margin:10px 0px 0px 0px;
+padding:0% 0% 0% 0%;
+}
+
+#menu li{
+list-style:none;
+display:inline-block;
+zoom:1;
+float:left;
+position:relative;
+margin:0;
+padding:0;
+}
+
+#menu li a{
+display:block;
+line-height:42px;
+text-decoration:none;
+color:white;
+padding:0 15px;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+#menu li:hover > a{
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+ul#menu .sub-menu{
+position:absolute;
+padding:0;
+width:115px;
+z-index:5;
+margin:0;
+background-color:#FCFCFC;
+box-shadow:0 0 30px rgba(0,0,0,.35);
+-moz-box-shadow:0 0 30px rgba(0,0,0,.35);
+-webkit-box-shadow:0 0 30px rgba(0,0,0,.35);
+top:100%;left:0;display:none;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+/*cor de fundo*/
+ul#menu .sub-menu a{
+line-height:32px;
+color:#303030;
+font-weight:normal;
+background-color:#FCFCFC;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+/*bordinha ao selecionar*/
+ul#menu li:last-child .sub-menu a:hover,ul#menu li:last-child .sub-menu li:hover > a{
+border-left:0;
+border-right:4px solid #303030;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+
+/*organiza item debaixo de item*/
+ul#menu .sub-menu li{
+float:none;
+display:block;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+/*drop*/
+ul#menu li:hover .sub-menu.hidden,ul#menu .sub-menu li:hover .sub-sub-menu.hidden{
+display:block;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
+
+
+/*seta para baixo*/
+#menu li.menuSimples > a::after,#menu li.multsub > a::after{
+content:"";
+width:0;
+height:0;
+border-width:5px 3px;
+border-style:solid;
+border-color:white transparent transparent transparent;
+position:absolute;
+top:20px;right:8px;
+-webkit-transition: all 0.5s ease;
+-moz-transition: all 0.5s ease;
+transition: all 0.5s ease;
+}
