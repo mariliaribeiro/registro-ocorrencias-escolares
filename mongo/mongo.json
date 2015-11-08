@@ -1,0 +1,738 @@
+[          
+	{
+		'tipo' : 'professor',
+		'nome' : 'Mellie Bolton',
+		'email' : 'vitae@purus.com',
+		'cpf' : '729.850.830-01',
+		'matricula' : '677101948'
+	},
+	{
+		'tipo' : 'professor', 
+		'nome': 'Sabine Grey',
+		'email' : 'turpis@nisl.com',
+		'cpf' : '017.849.171-33',
+		'matricula' : '561922575'
+	},
+	{
+		'tipo' : 'professor', 
+		'nome': 'Meridith Abraham',
+		'email' : 'diam@sagittis.com',
+		'cpf' : '785.476.510-39',
+		'matricula' : '578403969'
+	},
+	{
+		'tipo' : 'professor', 
+		'nome': 'Christa Allison',
+		'email' : 'ultrices@id.com',
+		'cpf' : '563.242.640-84',
+		'matricula' : '678016650'
+	},
+	{
+		'tipo' : 'professor',
+		'nome': 'Christian English',
+		'email' : 'ut@viverra.com',
+		'cpf' : '815.714.072-27',
+		'matricula' : '247968187'
+	},
+	{
+		'tipo' : 'professor',
+		'nome': 'Gertrudis Mcmillan',
+		'email' : 'eget@pulvinar.com',
+		'cpf' : '719.090.399-26',
+		'matricula' : '519032183'
+	},
+	{
+		'tipo' : 'professor',
+		'nome': 'Melinda Connor',
+		'email' : 'nec@tincidunt.com',
+		'cpf' : '818.927.212-87',
+		'matricula' : '522701642'
+	},
+	{
+		'tipo' : 'professor',
+		'nome': 'Vi Reeve',
+		'email' : 'nisl@quis.com',
+		'cpf' : '976.503.326-59',
+		'matricula' : '542782371'
+	},
+	{
+		'tipo' : 'professor',
+		'nome': 'Cherilyn Squires',
+		'email' : 'viverra@nibh.com',
+		'cpf' : '931.020.863-57',
+		'matricula' : '542453906'
+	},
+	{
+		'tipo' : 'professor',
+		'nome': 'Awilda Dickens',
+		'email' : 'lacinia@tellus.com',
+		'cpf' : '760.511.646-26',
+		'matricula' : '222585185'
+	},
+	{
+		'tipo' : 'curso',
+		'nome_curso':'Bacharelado em Sistemas de Informação',
+		'oferta':'anual', 
+		'descricao':'O nome_curso de Bacharelado em Sistemas de Informação tem por missão formar profissionais com amplo conhecimento em programação, análise de requisitos para o desenvolvimento e gestão em sistemas de informação. Como diferencial, o nome_curso visa atender a demanda de mercado, pois é necessário ao profissional de informática ser capaz de acompanhar os avanços tecnológicos e se adaptar rapidamente às mudanças em seu contexto de atuação, sem perder de vista as necessidades de seus clientes. Por isso, formam-se profissionais capazes de desenvolver e implementar soluções técnicas de informática na automatização dos processos corporativos, contribuindo para a geração de informação de qualidade.'
+	},
+	{
+		'tipo' : 'curso',
+		'nome_curso':'Tecnólogo em Redes de Computadores',
+		'oferta':'anual', 
+		'descricao':'Contribuir para a formação tecnológica e humana, de profissionais que elaborem, analisem, identifiquem, planejem, executem projetos, dêem manutenção e gerenciem redes de computadores , além de serem éticos, críticos e autônomos.'
+	},
+	{
+		'tipo' : 'curso',
+		'nome_curso':'Medicina Veterinária',
+		'oferta':'anual', 
+		'descricao':'O Médico Veterinário egresso do Instituto Federal Catarinense – Câmpus Araquari terá uma formação generalista, humanista, crítica e reflexiva, aliando teoria e prática através da experiência direta com os animais desde o princípio, oportunizada pela escola-fazenda ao lado do câmpus. Este profissional será capaz de suprir as necessidades da nova tendência de modernização em métodos de produção animal e inserção em cadeia produtiva. A partir do conhecimento dos fatos sociais, culturais e políticos, será capaz de raciocinar de forma lógica, observando e interpretando dados para a identificação e resolução problemas em seu campo de atuação.'
+	},
+	{
+		'tipo' : 'curso',
+		'nome_curso':'Licenciatura em Ciências Agrícolas',
+		'oferta':'anual', 
+		'descricao':'O Licenciado em Ciências Agrícolas diferencia-se dos demais profissionais oriundos de nome_cursos de bacharelado da grande área das ciências agrárias, por possuir uma forte formação técnico-pedagógica. Isto resulta em um perfil profissional eclético, com maiores conhecimentos e habilidades para o relacionamento interpessoal, o que é essencial para o trabalho em equipes multidisciplinares, bem como para executar atividades que envolvam intervenções em comunidades urbanas e rurais. O nome_curso também cumpre importante papel frente à política de educação do campo e o Programa Nacional de Educação na Reforma Agrária – PRONERA, entre outros dispostos do Decreto 7.352, de 4 de novembro de 2010.'
+	},
+	{
+		'tipo' : 'curso',
+		'nome_curso':'Licenciatura em Química',
+		'oferta':'anual', 
+		'descricao':'O nome_curso se sobressai pela alta capacidade do corpo docente e o elevado nível de conhecimento que o aluno adquire ao longo dos semestres. O Instituto Federal Catarinense – Câmpus Araquari oferece, portanto, um alto grau de instrução aos alunos do nome_curso de Licenciatura em Química, com aulas teóricas, práticas, visitas técnicas, semanas acadêmicas, mostras científicas, viagens, programas de estágio e iniciação científica. Tudo isso promove o diferencial para o aluno que busca o mercado de trabalho. Como ilustração, verificam-se alunos dos primeiros semestres do nome_curso que já atuam nas escolas da região, ministrando aulas para o Ensino Fundamental e Médio.'
+	},			
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Estrutura de Dados', 
+		'descricao':'Estrutura de Dados', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Bacharelado em Sistemas de Informação'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Desenvolvimento Web I', 
+		'descricao':'Desenvolvimento Web I', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Bacharelado em Sistemas de Informação'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Banco de Dados I', 
+		'descricao':'Banco de Dados I', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Bacharelado em Sistemas de Informação'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Programação Orientada a Objetos I', 
+		'descricao':'Programação Orientada a Objetos I', 
+		'periodo_oferta':3, 
+		'curso_oferta':'Bacharelado em Sistemas de Informação'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Redes de Computadores I', 
+		'descricao':'Redes de Computadores I', 
+		'periodo_oferta':2, 
+		'curso_oferta':'Bacharelado em Sistemas de Informação'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Organização e Arquitetura de Computadores', 
+		'descricao':'Organização e Arquitetura de Computadores', 
+		'periodo_oferta':1, 
+		'curso_oferta':'Tecnólogo em Redes de Computadores'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Administração de Sistemas Operacionais', 
+		'descricao':'Administração de Sistemas Operacionais', 
+		'periodo_oferta':2, 
+		'curso_oferta':'Tecnólogo em Redes de Computadores'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Protocolos de Comunicação', 
+		'descricao':'Protocolos de Comunicação', 
+		'periodo_oferta':3, 
+		'curso_oferta':'Tecnólogo em Redes de Computadores'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Serviços de Redes', 
+		'descricao':'Serviços de Redes', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Tecnólogo em Redes de Computadores'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Redes sem fio', 
+		'descricao':'Redes sem fio', 
+		'periodo_oferta':5, 
+		'curso_oferta':'Tecnólogo em Redes de Computadores'
+	},
+	{
+		'tipo' : 'disciplina',
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Anatomia Veterinária I', 
+		'descricao':'Anatomia Veterinária I', 
+		'periodo_oferta':1, 
+		'curso_oferta':'Medicina Veterinária'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Histologia Veterinária', 
+		'descricao':'Histologia Veterinária', 
+		'periodo_oferta':2, 
+		'curso_oferta':'Medicina Veterinária'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Microbiologia Geral', 
+		'descricao':'Microbiologia Geral', 
+		'periodo_oferta':3, 
+		'curso_oferta':'Medicina Veterinária'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Extensão Rural', 
+		'descricao':'Extensão Rural', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Medicina Veterinária'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Semiologia Veterinária', 
+		'descricao':'Semiologia Veterinária', 
+		'periodo_oferta':5, 
+		'curso_oferta':'Medicina Veterinária'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Biologia Geral', 
+		'descricao':'Biologia Geral', 
+		'periodo_oferta':1, 
+		'curso_oferta':'Licenciatura em Ciências Agrícolas'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Engenharia Agrícola I', 
+		'descricao':'Engenharia Agrícola I', 
+		'periodo_oferta':2, 
+		'curso_oferta':'Licenciatura em Ciências Agrícolas'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Fitotecnia Geral', 
+		'descricao':'Fitotecnia Geral', 
+		'periodo_oferta':3, 
+		'curso_oferta':'Licenciatura em Ciências Agrícolas'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Políticas Educacionais II', 
+		'descricao':'Políticas Educacionais II', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Licenciatura em Ciências Agrícolas'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Microbiologia Agrícola', 
+		'descricao':'Microbiologia Agrícola', 
+		'periodo_oferta':5, 
+		'curso_oferta':'Licenciatura em Ciências Agrícolas'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Matemática Fundamental', 
+		'descricao':'Matemática Fundamental', 
+		'periodo_oferta':1, 
+		'curso_oferta':'Licenciatura em Química'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Sociologia da Educação', 
+		'descricao':'Sociologia da Educação', 
+		'periodo_oferta':2, 
+		'curso_oferta':'Licenciatura em Química'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Políticas Educacionais I', 
+		'descricao':'Políticas Educacionais I', 
+		'periodo_oferta':3, 
+		'curso_oferta':'Licenciatura em Química'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Políticas Educacionais II', 
+		'descricao':'Políticas Educacionais II', 
+		'periodo_oferta':4, 
+		'curso_oferta':'Licenciatura em Química'
+	},
+	{
+		'tipo' : 'disciplina',
+		'nome_disciplina':'Didática II', 
+		'descricao':'Didática II', 
+		'periodo_oferta':5, 
+		'curso_oferta':'Licenciatura em Química'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Myong Jones',
+		'email' : 'placerat@augue.com',
+		'data_nascimento' : '26/11/1969',
+		'data_matricula' : '29/09/2013',
+		'matricula' : '501483327',
+		'turma' : 'LIQUI7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Evelin Spence',
+		'email' : 'placerat@mattis.com',
+		'data_nascimento' : '20/08/1991',
+		'data_matricula' : '13/12/2014',
+		'matricula' : '418398751',
+		'turma' : 'LICA7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Ilene Khan',
+		'email' : 'orci@ultrices.com',
+		'data_nascimento' : '17/11/1984',
+		'data_matricula' : '29/04/2014',
+		'matricula' : '489829179',
+		'turma' : 'RED4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Florine John',
+		'email' : 'id@nulla.com',
+		'data_nascimento' : '18/06/1983',
+		'data_matricula' : '23/08/2014',
+		'matricula' : '235463968',
+		'turma' : 'VET7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Jacklyn Nichols',
+		'email' : 'hac@malesuada.com',
+		'data_nascimento' : '20/12/1971',
+		'data_matricula' : '20/01/2014',
+		'matricula' : '407566041',
+		'turma' : 'BSI3'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Marti Prentice',
+		'email' : 'eget@arcu.com',
+		'data_nascimento' : '24/05/1979',
+		'data_matricula' : '12/07/2015',
+		'matricula' : '045091107',
+		'turma' : 'VET1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Alton Molloy',
+		'email' : 'sed@viverra.com',
+		'data_nascimento' : '07/12/1960',
+		'data_matricula' : '30/10/2014',
+		'matricula' : '652267340',
+		'turma' : 'LIQUI7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Patti Barnes',
+		'email' : 'amet@porttitor.com',
+		'data_nascimento' : '06/04/1971',
+		'data_matricula' : '29/07/2013',
+		'matricula' : '064368652',
+		'turma' : 'LICA2'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Dominique Wright',
+		'email' : 'suspendisse@nec.com',
+		'data_nascimento' : '27/08/1987',
+		'data_matricula' : '11/07/2014',
+		'matricula' : '414510352',
+		'turma' : 'BSI3'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Jayson Edwards',
+		'email' : 'adipiscing@venenatis.com',
+		'data_nascimento' : '14/03/1961',
+		'data_matricula' : '29/12/2013',
+		'matricula' : '772542061',
+		'turma' : 'VET8'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Keva Yates',
+		'email' : 'fusce@mattis.com',
+		'data_nascimento' : '20/03/1997',
+		'data_matricula' : '08/05/2015',
+		'matricula' : '471149072',
+		'turma' : 'BSI4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Harvey Feeney',
+		'email' : 'malesuada@mi.com',
+		'data_nascimento' : '21/01/1977',
+		'data_matricula' : '12/08/2014',
+		'matricula' : '001869979',
+		'turma' : 'LIQUI6'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Molly Gregory',
+		'email' : 'facilisi@risus.com',
+		'data_nascimento' : '06/07/1963',
+		'data_matricula' : '24/03/2015',
+		'matricula' : '221685375',
+		'turma' : 'LICA4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Mallie Casey',
+		'email' : 'gravida@eu.com',
+		'data_nascimento' : '30/09/1984',
+		'data_matricula' : '18/08/2014',
+		'matricula' : '265199713',
+		'turma' : 'LICA8'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Jeanie Atkins',
+		'email' : 'nunc@sed.com',
+		'data_nascimento' : '06/12/1986',
+		'data_matricula' : '28/09/2014',
+		'matricula' : '544395974',
+		'turma' : 'VET6'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Mertie Salt',
+		'email' : 'vestibulum@ultricies.com',
+		'data_nascimento' : '07/02/1982',
+		'data_matricula' : '26/07/2015',
+		'matricula' : '011640709',
+		'turma' : 'RED4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Robbi Watt',
+		'email' : 'faucibus@dolor.com',
+		'data_nascimento' : '25/02/1989',
+		'data_matricula' : '13/04/2015',
+		'matricula' : '264925246',
+		'turma' : 'RED2'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Thu Cresswell',
+		'email' : 'risus@quam.com',
+		'data_nascimento' : '07/06/1997',
+		'data_matricula' : '26/03/2014',
+		'matricula' : '549147345',
+		'turma' : 'BSI1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Lincoln Dillon',
+		'email' : 'nunc@id.com',
+		'data_nascimento' : '22/08/1990',
+		'data_matricula' : '23/07/2014',
+		'matricula' : '544906451',
+		'turma' : 'BSI5'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Ronnie Kirkpatrick',
+		'email' : 'viverra@vel.com',
+		'data_nascimento' : '02/09/1996',
+		'data_matricula' : '20/06/2013',
+		'matricula' : '009014837',
+		'turma' : 'LIQUI4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Gail Crawford',
+		'email' : 'vehicula@et.com',
+		'data_nascimento' : '08/08/1979',
+		'data_matricula' : '27/11/2013',
+		'matricula' : '530536381',
+		'turma' : 'VET4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Loralee Major',
+		'email' : 'massa@nulla.com',
+		'data_nascimento' : '31/07/1968',
+		'data_matricula' : '09/05/2015',
+		'matricula' : '685014521',
+		'turma' : 'LICA1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Karey Mohamed',
+		'email' : 'natoque@lectus.com',
+		'data_nascimento' : '14/06/1993',
+		'data_matricula' : '20/11/2013',
+		'matricula' : '515940982',
+		'turma' : 'RED7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Deane Heath',
+		'email' : 'posuere@habitant.com',
+		'data_nascimento' : '21/02/1957',
+		'data_matricula' : '06/06/2014',
+		'matricula' : '396207318',
+		'turma' : 'BSI1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Lou Gates',
+		'email' : 'venenatis@arcu.com',
+		'data_nascimento' : '15/06/1972',
+		'data_matricula' : '21/09/2015',
+		'matricula' : '221761984',
+		'turma' : 'RED3'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Lesley Perkins',
+		'email' : 'ultricies@non.com',
+		'data_nascimento' : '23/05/1981',
+		'data_matricula' : '30/12/2014',
+		'matricula' : '477826679',
+		'turma' : 'LICA5'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Clair Milne',
+		'email' : 'maecenas@senectus.com',
+		'data_nascimento' : '19/05/1970',
+		'data_matricula' : '05/09/2014',
+		'matricula' : '397487093',
+		'turma' : 'LIQUI4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Eliza Vickers',
+		'email' : 'id@elementum.com',
+		'data_nascimento' : '17/08/1988',
+		'data_matricula' : '05/01/2014',
+		'matricula' : '297084764',
+		'turma' : 'VET1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Francisca Iles',
+		'email' : 'nec@ligula.com',
+		'data_nascimento' : '13/10/1980',
+		'data_matricula' : '13/07/2014',
+		'matricula' : '576098761',
+		'turma' : 'BSI2'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Cyndi Needham',
+		'email' : 'ac@maecenas.com',
+		'data_nascimento' : '12/09/1955',
+		'data_matricula' : '19/01/2014',
+		'matricula' : '528798193',
+		'turma' : 'LICA4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Tonda Kearns',
+		'email' : 'sed@felis.com',
+		'data_nascimento' : '30/08/1973',
+		'data_matricula' : '23/06/2013',
+		'matricula' : '648369085',
+		'turma' : 'VET3'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Irene Francis',
+		'email' : 'ante@volutpat.com',
+		'data_nascimento' : '05/05/1961',
+		'data_matricula' : '10/08/2015',
+		'matricula' : '672072116',
+		'turma' : 'LIQUI7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Heath Barker',
+		'email' : 'quam@nibh.com',
+		'data_nascimento' : '17/06/1992',
+		'data_matricula' : '22/01/2014',
+		'matricula' : '253720881',
+		'turma' : 'BSI6'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Elidia Forrester',
+		'email' : 'elementum@enim.com',
+		'data_nascimento' : '13/04/1971',
+		'data_matricula' : '23/04/2015',
+		'matricula' : '462373910',
+		'turma' : 'BSI6'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Dorsey Betts',
+		'email' : 'porttitor@et.com',
+		'data_nascimento' : '15/05/1959',
+		'data_matricula' : '13/02/2013',
+		'matricula' : '230107458',
+		'turma' : 'RED5'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Kallie Sutton',
+		'email' : 'purus@mauris.com',
+		'data_nascimento' : '20/11/1991',
+		'data_matricula' : '29/04/2014',
+		'matricula' : '081860299',
+		'turma' : 'LIQUI1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Trish Robbins',
+		'email' : 'egestas@magna.com',
+		'data_nascimento' : '14/07/1989',
+		'data_matricula' : '22/05/2013',
+		'matricula' : '501686144',
+		'turma' : 'VET5'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Dania Cullen',
+		'email' : 'et@pulvinar.com',
+		'data_nascimento' : '01/03/1988',
+		'data_matricula' : '20/12/2013',
+		'matricula' : '501144163',
+		'turma' : 'VET4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Kandis Bellamy',
+		'email' : 'dolor@lectus.com',
+		'data_nascimento' : '04/09/1978',
+		'data_matricula' : '21/10/2014',
+		'matricula' : '479233087',
+		'turma' : 'BSI8'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Kizzie Riley',
+		'email' : 'vel@eget.com',
+		'data_nascimento' : '24/06/1974',
+		'data_matricula' : '10/12/2014',
+		'matricula' : '445549850',
+		'turma' : 'LICA3'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Maryalice Smyth',
+		'email' : 'tincidunt@eu.com',
+		'data_nascimento' : '23/11/1993',
+		'data_matricula' : '12/01/2014',
+		'matricula' : '543189390',
+		'turma' : 'LICA6'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Danyelle Fernandez',
+		'email' : 'malesuada@gravida.com',
+		'data_nascimento' : '30/07/1995',
+		'data_matricula' : '13/11/2014',
+		'matricula' : '213478265',
+		'turma' : 'LIQUI7'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Wendell Thomson',
+		'email' : 'risus@mi.com',
+		'data_nascimento' : '30/12/1975',
+		'data_matricula' : '24/03/2014',
+		'matricula' : '442441106',
+		'turma' : 'VET5'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Gladys Thompson',
+		'email' : 'egestas@egestas.com',
+		'data_nascimento' : '04/12/1979',
+		'data_matricula' : '22/02/2014',
+		'matricula' : '664075525',
+		'turma' : 'RED4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Lupe Hood',
+		'email' : 'dolor@ultricies.com',
+		'data_nascimento' : '03/03/1961',
+		'data_matricula' : '05/11/2014',
+		'matricula' : '339608128',
+		'turma' : 'LICA8'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Skye Roach',
+		'email' : 'vel@et.com',
+		'data_nascimento' : '20/12/1981',
+		'data_matricula' : '11/05/2014',
+		'matricula' : '477381480',
+		'turma' : 'BSI8'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Joaquin Finch',
+		'email' : 'id@nam.com',
+		'data_nascimento' : '04/07/1983',
+		'data_matricula' : '01/04/2014',
+		'matricula' : '460869532',
+		'turma' : 'BSI4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Nova Birch',
+		'email' : 'enim@imperdiet.com',
+		'data_nascimento' : '03/10/1992',
+		'data_matricula' : '19/06/2013',
+		'matricula' : '234906874',
+		'turma' : 'BSI1'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Hiroko Wilkins',
+		'email' : 'luctus@elit.com',
+		'data_nascimento' : '16/08/1995',
+		'data_matricula' : '28/03/2013',
+		'matricula' : '460525390',
+		'turma' : 'BSI4'
+	},
+	{
+		'tipo' : 'aluno',
+		'nome' : 'Bulah Gardiner',
+		'email' : 'faucibus@commodo.com',
+		'data_nascimento' : '30/12/1979',
+		'data_matricula' : '14/04/2015',
+		'matricula' : '503050457',
+		'turma' : 'LIQUI7'
+	}
+]

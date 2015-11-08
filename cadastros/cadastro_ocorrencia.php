@@ -5,14 +5,15 @@
         <title>Cadastro de Ocorrências</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-whidth, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="../../repositorios_interface/semantic/dist/semantic.min.css">
-        <script src="../../repositorios_interface/semantic/dist/semantic.min.js"></script>
-        <link rel="stylesheet" type="text/css" href="static/css/estilo.css">
-        <link rel="stylesheet" type="text/css" href="static/css/animation.css">
-        <link rel="stylesheet" type="text/css" href="static/css/menu.css">
-        <script type="text/javascript" src="static/js/getDateTime.js"></script>
-        <script type="text/javascript" src="static/js/numeros.js"></script>
-        <script type="text/javascript" src="static/js/mascaraCPF.js"></script>
+        <link rel="stylesheet" type="text/css" href="../../../repositorios_interface/semantic/dist/semantic.min.css">
+        <script src="../../../repositorios_interface/semantic/dist/semantic.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="../static/css/estilo.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/animation.css">
+        <link rel="stylesheet" type="text/css" href="../static/css/menu.css">
+        <script type="text/javascript" src="../static/js/getDateTime.js"></script>
+        <script type="text/javascript" src="../static/js/numeros.js"></script>
+        <script type="text/javascript" src="../static/js/mascaraCPF.js"></script>
+        <script type="text/javascript" src="../static/js/mascaraData.js"></script>
     </head>
 
     <body onload="javascript:getDateTime('dataHora');">
@@ -27,7 +28,7 @@
                             <div class="column"></div>
                             <div class="column">
                                 <a href="#">
-                                    <img class="rotacao" src="static/img/perfil.png" alt="perfil" />
+                                    <img class="rotacao" src="../static/img/perfil.png" alt="perfil" />
                                 </a>
                             </div>
                             <div class="column"></div>
@@ -72,19 +73,20 @@
                         <div class="three wide column"></div>
                     
                         <div class="ten wide column">                      
-                            <form class="ui form" name="enviar" method="post" action="recebe.php">
+                            <form class="ui form" name="enviar" method="post" action="../recebe_form/recebe_ocorrencia.php">
                                 <h1 class="ui dividing header">Cadastro de Ocorrências</h1>
                               
                                 <div class="ui label">
                                     <i class="wait icon"></i>
-                                    <label id="dataHora"></label>
+                                    <label id="dataHora" name="data"></label>
                                 </div>
                                 
                                 <!-- input search-->
                                 <div class="field">
                                     <label>Professor</label>
                                     <div class="ui fluid icon input">                            
-                                        <input type="text" name="nome_professor" placeholder="Professor" required="required">
+                                        <!--<input type="text" name="nome_professor" placeholder="Professor" required="required">-->
+                                        <input type="text" name="nome_professor" placeholder="Professor" value="Ivo Riegel" required="required" readonly>
                                         <i class="write icon"></i>
                                     </div>
                                 </div>
@@ -101,7 +103,7 @@
                                     <div class="field">
                                         <label>CPF do Aluno</label>
                                         <div class="ui fluid icon input">                         
-                                            <input type="text" value="" name="cpf_aluno" placeholder="xxx.xxx.xxx-xx" required="required" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="15" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);">
+                                            <input type="text" value="" name="cpf_aluno" placeholder="xxx.xxx.xxx-xx" required="required" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="14" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);">
                                         </div>
                                     </div>
                                     
@@ -156,9 +158,10 @@
                 <div class="row">                    
                     <div class="three wide column"></div>
                     <div class="ten wide column">
-                        <img class="logo" src="static/img/ifc.svg.png"/>
+                        <img class="logo" src="../static/img/ifc.svg.png"/>
                     </div>
                     <div class="three wide column"></div>
+                </div>
             </footer> 
             
         </section>

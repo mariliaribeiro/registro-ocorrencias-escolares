@@ -1,0 +1,35 @@
+table{
+    border-collapse:collapse;
+    border:solid 2px #999999;
+    width:auto;
+    margin: 0 auto;
+    font: arial;
+}
+
+thead tr th {
+    text-align:center;
+    border-bottom:solid 2px #000000;
+    border-left:solid 2px #000000;
+    font: bold 14px arial;
+}
+             
+tr td{
+    border:solid 1px #999999;
+    font: bold 12px arial;
+    text-align:center;
+}
+
+tr th{
+    border:solid 1px #999999;
+    font: bold 10px arial;
+}
+ 
+tfoot tr td{
+    text-align:center;
+    border-top:solid 2px #000000;
+    font: bold 14px arial;
+}
+
+table.tabela1 tbody tr:nth-child(odd){
+   background-color: #E9E9E9;
+}
