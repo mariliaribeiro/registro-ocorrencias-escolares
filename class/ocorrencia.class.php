@@ -1,5 +1,7 @@
 <?php
     class ocorrencia{
+
+/*------------------VAR------------------------*/
         private $nomeProf; 
         private $nomeAluno;
         private $cpf;
@@ -9,7 +11,7 @@
         //private $hora;
         private $ocorrencia;
 
-        //get
+/*------------------GET------------------------*/
         function getNomeProf(){
             return $this->nomeProf;
         }
@@ -42,7 +44,7 @@
             return $this->ocorrencia;
         }
         
-        //set
+/*------------------SET------------------------*/
         function setNomeProf($nomeProf){
             $this->nomeProf = $nomeProf;
         }        
@@ -75,8 +77,35 @@
             $this->ocorrencia = $ocorrencia;
         }
 
+/*------------------DEMAIS FUNÇÕES------------------------*/
+        function insertCurso(){
+            include '../mongo/conexao.php';
+            $query = array(
+                        'tipo' => 'ocorrencia',
+                        'nome_professor' => $this->nomeProf,
+                        'nome_aluno' => $this->nomeAluno,
+                        'cpf_aluno' => $this->cpf
+                        'matricula_aluno' => $this->matricula,
+                        'turma' => $this->turma,
+                        'disciplina' => $this->disciplina,
+                        /*'hora' => $this->hora,*/
+                        'descricao_ocorrencia' => $this->ocorrencia); 
+            $colecao->insert($query);
+            echo('Dados inseridos com sucesso!');
+        }
 
-        //apresentaçaõ dos dados na tela
+        function updateOcorrencia(){
+            include '../mongo/conexao.php';
+            
+            $filtro = ['tipo' => 'ocorrencia','nome_professor'=>$this->nomeProf,'nome_aluno'=>$this->nomeAluno];
+            $update = ['$set'=> ['turma'=>$this->turma,'disciplina'=>$this->disciplina,'descricao_ocorrencia'=>$this->ocorrencia]];
+            $query = [$filtro, $update];
+            $colecao->update($query);
+            echo('Dados alterados com sucesso!');
+            
+        }
+
+        //apresentação dos dados na tela
         function apresentaDados(){
 
             echo('

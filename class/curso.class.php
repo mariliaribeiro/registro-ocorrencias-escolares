@@ -1,94 +1,153 @@
 <?php
-class aluno{
+class curso{
     
 /*------------------VAR------------------------*/
-	private $nome;
-	private $email;
-	private $data_nascimento;
-	private $data_matricula;
-	private $matricula;
-	private $turma;
+	private $nome_curso;
+	private $oferta;
+	private $descricao;
     
 /*------------------GET------------------------*/
-	function getNome(){
-		return $this->nome;	
+	function getNomeCurso(){
+		return $this->nome_curso;	
 	}
-	function getEmail(){
-		return $this->email;	
+	function getOferta(){
+		return $this->oferta;	
 	}
-	function getDataNascimento(){
-		return $this->data_nascimento;	
+	function getDescricao(){
+		return $this->descricao;	
 	}
-	function getDataMatricula(){
-		return $this->data_matricula;	
-	}    
-    function getMatricula(){
-        return $this->matricula;
-    }    
-    function getTurma(){
-        return $this->turma;
-    }
-    
+	
 /*------------------SET------------------------*/
-	function setNome($nome){
-		return $this->nome = $nome;	
+	function setNomeCurso($nome_curso){
+		return $this->nome_curso = $nome_curso;	
 	}    
-	function setEmail($email){
-		return $this->email = $email;	
+	function setOferta($oferta){
+		return $this->oferta = $oferta;	
 	}
-	function setDataNascimento($data_nascimento){
-		return $this->data_nascimento = $data_nascimento;	
+	function setDescricao($descricao){
+		return $this->descricao = $descricao;	
 	}
-	function setDataMatricula($data_matricula){
-		return $this->data_matricula = $data_matricula;	
-	}
-    function setMatricula($matricula){
-        return $this->matricula = $matricula;
-    }
-    function setTurma($turma){
-        return $this->turma = $turma;
-    }
 
-/*------------------DEMAIS FUNÇÕES------------------------*/      
-        function listaAlunos() {
-        include 'conexao.php'; //insere o arquivo de conexão
-        $filter = array('tipo'=>'aluno'); //filtra os dados com o tipo: curso
-        $proje = array('nome' => 1, 'email'=>1,'data_nascimento'=>1,'data_matricula'=>1,'matricula'=>1,'turma'=>1);//apresenta os dados desejados
-        $cursor = $colecao->find($filter,$proje);//executa a consulta    
-        
-        echo'<table class="tabela1">
-            <thead>
-				<tr><th colspan="4">Lista Alunos</th></tr>
-            </thead>
-            <tfoot>
-				<tr><td colspan="4">Base exemplo</td></tr>
-			</tfoot>
-			<tbody>
-			<tr>
-					<td>Nome</td>
-					<td>E-mail</td>
-					<td>Data de Nascimento</td>
-					<td>Data de Matrícula</td>
-					<td>Matrícula</td>
-					<td>Turma</td>
-				</tr>';    
-        foreach ($cursor as $campo) {
-            echo'        
+/*------------------DEMAIS FUNÇÕES------------------------*/
+        function insertCurso(){
+            include '../mongo/conexao.php';
+
+            $query = array(
+                        'tipo' => 'curso',
+                        'nome_curso' => $this->nome_curso,
+                        'oferta' => $this->oferta,
+                        'descricao' => $this->descricao);
+            $colecao->insert($query);
+            echo('Dados inseridos com sucesso!');
             
-				<tr>
-					<td>'.$campo['nome'].'</td>
-					<td>'.$campo['email'].'</td>
-					<td>'.$campo['data_nascimento'].'</td>
-					<td>'.$campo['data_matricula'].'</td>
-					<td>'.$campo['matricula'].'</td>
-					<td>'.$campo['turma'].'</td>
-				</tr>';
+            /*$filtro = ['nome_curso' => $this->curso];
+            $projecao = ['nome_curso' => 1, '_id' => 0];
+            $cursor = $colecao->findOne($filtro, $projecao);
+            
+            if($this->nome_curso == $cursor['nome_curso']){
+                echo('
+                        <div class="ui red message">Curso já cadastrado!</div>
+                    ');
+            }  elseif($this->curso !== $cursor['nome_curso']) {  
+                $query = array(
+                        'tipo' => 'curso',
+                        'nome_curso' => $this->nome_curso,
+                        'oferta' => $this->oferta,
+                        'descricao' => $this->descricao);
+                $colecao->insert($query);
+                echo('Dados inseridos com sucesso!');
+            }*/
         }
-        echo '
-			</tbody>
-			</table>';        
-    }
+
+        function updateCurso(){
+            include '../mongo/conexao.php';
+            
+            $filtro = ['tipo' => 'curso','nome_curso'=>$this->nome_curso];
+            $update = ['$set'=> ['oferta'=>$this->oferta,'descricao'=>$this->descricao]];
+            $query = [$filtro, $update];
+            $colecao->update($query);
+            echo('Dados alterados com sucesso!');
+        }
+        
+        function listaCursos() {
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $filter = array('tipo'=>'curso'); //filtra os dados com o tipo: curso
+            $proje = array('nome_curso' => 1, 'oferta'=>1,'descricao'=>1);//apresenta os dados desejados
+            $cursor = $colecao->find($filter,$proje);//executa a consulta    
+            
+            echo'<table class="tabela1">
+                <thead>
+                    <tr><th colspan="4">Lista Cursos</th></tr>
+                </thead>
+                <tfoot>
+                    <tr><td colspan="4">Base exemplo</td></tr>
+                </tfoot>
+                <tbody>
+                <tr>
+                        <td>Curso</td>
+                        <td>Oferta</td>
+                        <td>Descrição</td>
+                    </tr>';    
+            foreach ($cursor as $campo) {
+                echo'        
+                
+                    <tr>
+                        <td>'.$campo['nome_curso'].'</td>
+                        <td>'.$campo['oferta'].'</td>
+                        <td>'.$campo['descricao'].'</td>
+                    </tr>';
+            }
+            echo '
+                </tbody>
+                </table>';        
+        }
 	
-	
+        //apresentação dos dados na tela
+        function apresentaDados(){
+            echo('
+                <div class="field" style="padding: 0px 0px 10px 0px;">
+                    <div class="ui label">Curso</div>
+                    <div class="ui fluid icon input">                            
+                        <input type="text" name="curso" value="'.$this->nome_curso.'" readonly>
+                    </div>
+                </div>
+                
+                <div class="field" style="padding: 0px 0px 10px 0px;">
+                    <div class="ui label">Oferta</div>
+                    <div class="ui fluid icon input">                            
+                        <input type="text" name="oferta" value="'.$this->oferta.'" readonly>
+                    </div>
+                </div>
+                
+                <div class="field" style="padding: 0px 0px 10px 0px;">
+                    <div class="ui label">Descrição</div>
+                    <div class="ui fluid icon input">                            
+                        <input type="text" name="descricao" value="'.$this->descricao.'" readonly>
+                    </div>
+                </div>
+            ');
+        }
+
+        function selectCurso(){
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $filter = array('tipo'=>'curso'); //filtra os dados com o tipo: curso
+            $proje = array('_id' => 1, 'nome_curso' => 1);//apresenta os dados desejados
+            $cursor = $colecao->find($filter,$proje);//executa a consulta    
+            
+            echo('
+                    <select name="curso" id="select_curso" required>
+                        <option>Selecione um curso</option>'
+                );
+
+            foreach ($cursor as $campo) {
+                echo('
+                        <option value="'.$campo['_id'].'">'.$campo['nome_curso'].'</option>
+                    ');
+            }
+            
+            echo('
+                    </select>
+                ');
+        }
 	}
 ?>
