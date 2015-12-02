@@ -1,6 +1,6 @@
 <?php
 
-include_once '../class/login.class.php';
+include_once '../model/login.class.php';
 
 include '../mongo/conexao.php';
 $login=new login;

@@ -3,17 +3,17 @@ body{
     margin:0px;
     padding:0px;
     width:100%;
-    height:100%;
+    min-height:100%;
     font:bold 14px Arial, Verdana;
 }
 
 section{
     width:100%;
-    height:100%;
+    min-height:100%;
 }
 
 header{    
-    height:15%;
+    min-height:15%;
     margin:0%;
     text-align: center;
 }
@@ -29,11 +29,11 @@ nav{
 
 article{
     text-align: center;
-    height:75%;
+    min-height:75%;
 }
 
 footer{ 
-    height:10%;
+    min-height:10%;
     margin:0%;
     text-align: center;
     background:#303030;
@@ -64,6 +64,10 @@ footer{
     width: 100%;
 }
 
-.ui.inverted.menu .item>a:not(.ui){
+.ui.menu .ui.dropdown.item .menu .item:not(.filtered){
     color: #000;
+}
+
+.ui.icon.message .icon:not(.close)+.content {
+    text-align: left;
 }

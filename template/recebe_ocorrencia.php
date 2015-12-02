@@ -1,5 +1,5 @@
 <?php               
-    include_once '../class/form.class.php';
+    include_once '../model/form.class.php';
     $formulario= new form;
                    
     $formulario->setNomeProf(filter_input(\INPUT_POST, 'nome_professor'));

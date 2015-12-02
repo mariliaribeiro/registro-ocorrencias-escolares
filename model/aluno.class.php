@@ -59,7 +59,7 @@ class aluno{
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertAluno(){
-            include 'mongo/conexao.php';
+            include '../mongo/conexao.php';
 
             $senha=  password_hash($this->senha, PASSWORD_BCRYPT);
             $query = array(
@@ -73,7 +73,7 @@ class aluno{
                 'turma' => $this->turma);
             $colecao->insert($query);
             echo('Dados gravados com sucesso');
-            
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
             /*$filtro = ['nome' => ['$exists' => true], 'email' => $this->email];
             $projecao = ['email' => 1, '_id' => 0];
             $cursor = $colecao->findOne($filtro, $projecao);
@@ -99,7 +99,7 @@ class aluno{
         }
 
         function updateAluno(){
-            include 'mongo/conexao.php';
+            include '../mongo/conexao.php';
             
             $filtro = ['tipo' => 'aluno','nome'=>$this->nome,'email'=>$this->email];
             $update = ['$set'=> ['data_nascimento'=>$this->data_nascimento,'data_matricula'=>$this->data_matricula,'matricula'=>$this->matricula,'turma'=>$this->turma]];
@@ -110,26 +110,12 @@ class aluno{
         }
 
         function listaAlunos() {
-            include 'mongo/conexao.php'; //insere o arquivo de conexão
-            //include_once '../mongo/conexao.php'; //insere o arquivo de conexão
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            //include_once '../../mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'aluno'); //filtra os dados com o tipo: curso
             $proje = array('nome' => 1, 'email'=>1,'data_nascimento'=>1,'data_matricula'=>1,'matricula'=>1,'turma'=>1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    
             
-            echo('<table class="ui fixed table">
-                    <thead>
-                        <tr>
-                            <th>Nome</th>
-                            <th>E-mail</td>
-                            <th>Data de Nascimento</th>
-                            <th>Data de Matrícula</th>
-                            <th>Matrícula</th>
-                            <th>Turma</th>
-                        </tr>
-                    </thead>
-                    
-                    <tbody>
-                ');    
             foreach ($cursor as $campo) {
                 echo('        
                 
@@ -142,9 +128,6 @@ class aluno{
                         <td>'.$campo['turma'].'</td>
                     </tr>');
             }
-            echo ('
-                </tbody>
-                </table>');        
         }
 
         //apresentação dos dados na tela

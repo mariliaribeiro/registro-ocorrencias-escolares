@@ -1,4 +1,11 @@
-<form class="ui form" name="enviar" method="post" action="recebe_form/recebe_ocorrencia.php">
+<?php include 'base.php' ?>
+
+<?php startblock('title') ?>
+Cadastro de Ocorrências
+<?php endblock('title') ?>  
+
+<?php startblock('article') ?>
+    <form class="ui form" name="enviar" method="post" action="recebe_ocorrencia.php">
         <h1 class="ui dividing header">Cadastro de Ocorrências</h1>
       
         <div class="ui label">
@@ -44,17 +51,20 @@
         <div class="two fields">
             <div class="field">    
                 <label>Turma</label>
-                <?php
-                    //include_once 'class/turma.class.php';           
-                    //$turma = new turma;
-                    //$turma->selectTurma();
-                ?>
+                <select name="turma" id="select_turma" required>
+                    <option>Selecione uma turma</option>
+                    <?php
+                        //include_once '../model/turma.class.php';           
+                        //$turma = new turma;
+                        //$turma->selectTurma();
+                    ?>
+                </select>
             </div>
             
               <div class="field">                            
                 <label>Disciplina</label>
                 <?php
-                    //include_once 'class/disciplina.class.php';           
+                    //include_once '../model/disciplina.class.php';           
                     //$disciplina = new disciplina;
                     //$disciplina->selectDisciplina();
                 ?>
@@ -68,3 +78,4 @@
           
         <button class="ui button" type="submit">Cadastrar</button>
     </form>
+<?php endblock('article') ?>

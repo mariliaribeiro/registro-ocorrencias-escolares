@@ -1,0 +1,30 @@
+<?php include 'base.php' ?>
+
+<?php startblock('title') ?>
+Listagem de Disciplinas
+<?php endblock('title') ?>          
+
+<?php startblock('article') ?>
+    <h1>Listagem de Alunos</h1>
+    <table class="ui fixed table">
+        <thead>
+            <tr>
+                <th>Disciplina</th>
+                <th>Descrição</th>
+                <th>Período de Oferta</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+            
+        <tbody>
+            <?php
+                include_once '../model/disciplina.class.php';
+                $disciplina = new disciplina;
+                $disciplina->getDisciplinas();
+                unset($disciplina);
+            ?>
+
+        </tbody>
+    </table>
+                
+<?php endblock('article') ?>    

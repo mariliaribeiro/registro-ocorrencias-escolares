@@ -30,7 +30,7 @@ class curso{
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertCurso(){
-            include 'mongo/conexao.php';
+            include '../mongo/conexao.php';
 
             $query = array(
                         'tipo' => 'curso',
@@ -39,7 +39,7 @@ class curso{
                         'descricao' => $this->descricao);
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
-            
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
             /*$filtro = ['nome_curso' => $this->curso];
             $projecao = ['nome_curso' => 1, '_id' => 0];
             $cursor = $colecao->findOne($filtro, $projecao);
@@ -60,7 +60,7 @@ class curso{
         }
 
         function updateCurso(){
-            include 'mongo/conexao.php';
+            include '../mongo/conexao.php';
             
             $filtro = ['tipo' => 'curso','nome_curso'=>$this->nome_curso];
             $update = ['$set'=> ['oferta'=>$this->oferta,'descricao'=>$this->descricao]];
@@ -69,22 +69,12 @@ class curso{
             echo('Dados alterados com sucesso!');
         }
         
-        function listaCursos() {
-            include 'mongo/conexao.php'; //insere o arquivo de conexão
+        function getCursos() {
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'curso'); //filtra os dados com o tipo: curso
             $proje = array('nome_curso' => 1, 'oferta'=>1,'descricao'=>1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    
             
-            echo'<table class="ui fixed table">
-                    <thead>
-                        <tr>
-                            <th>Curso</th>
-                            <th>Oferta</th>
-                            <th>Descrição</th>
-                        </tr>
-                    </thead>
-                    <tbody>'
-                    ;    
             foreach ($cursor as $campo) {
                 echo'        
                 
@@ -94,9 +84,6 @@ class curso{
                         <td>'.$campo['descricao'].'</td>
                     </tr>';
             }
-            echo '
-                </tbody>
-                </table>';        
         }
 	
         //apresentação dos dados na tela
@@ -126,7 +113,7 @@ class curso{
         }
 
         function selectCurso(){
-            include 'mongo/conexao.php'; //insere o arquivo de conexão
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'curso'); //filtra os dados com o tipo: curso
             $proje = array('_id' => 1, 'nome_curso' => 1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    

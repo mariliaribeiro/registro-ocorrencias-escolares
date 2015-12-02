@@ -44,7 +44,7 @@ class professor{
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertProfessor(){
-            include 'mongo/conexao.php';
+            include '../mongo/conexao.php';
 
             $senha=  password_hash($this->senha, PASSWORD_BCRYPT);
             $query = array(
@@ -56,7 +56,7 @@ class professor{
                 'senha' => $senha);
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
-
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
             /*$filtro = ['nome' => ['$exists' => true], 'email' => $this->email];
             $projecao = ['email' => 1, '_id' => 0];
             $cursor = $colecao->findOne($filtro, $projecao);
@@ -80,7 +80,7 @@ class professor{
         }
         
         function updateProfessor(){
-            include 'mongo/conexao.php';
+            include '../mongo/conexao.php';
             
             $filtro = ['tipo' => 'professor','nome'=>$this->nome,'email'=>$this->email];
             $update = ['$set'=> ['cpf'=>$this->cpf,'matricula'=>$this->matricula]];
@@ -90,22 +90,12 @@ class professor{
             
         }
         
-        function listaProfessores() {
-            include 'mongo/conexao.php'; //insere o arquivo de conexão
+        function getProfessores() {
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'professor'); //filtra os dados com o tipo: curso
             $proje = array('nome' => 1, 'email'=>1,'cpf'=>1, 'matricula'=>1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    
             
-            echo'<table class="ui fixed table">
-                    <thead>
-                        <tr>
-                            <th>Nome</td>
-                            <th>E-mail</th>
-                            <th>CPF</th>
-                            <th>Matrícula</th>
-                        </tr>
-                    </thead>
-                    <tbody>';    
             foreach ($cursor as $campo) {
                 echo'        
                 
@@ -116,9 +106,6 @@ class professor{
                         <td>'.$campo['matricula'].'</td>
                     </tr>';
             }
-            echo '
-                </tbody>
-                </table>';        
         }
 
 
