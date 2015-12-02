@@ -1,4 +1,3 @@
-
 <html>
     <head>  
         <title>Sistema de Ocorrências IFC</title>
@@ -33,14 +32,44 @@
                         </ul>
                     </div>
                 </div>
+
+                 <!--<div class="row menu">                    
+                    <div class="three wide column"></div>                    
+                    <div class="ten wide column">                        
+                        <nav class="ui inverted menu">
+                            <a class="item active" href="./base.php">Home</a>
+                            <div class="ui dropdown item">
+                                Cadastros
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div class="item"><a href="./base.php?pg=./cadastros/cadastro_aluno.php&loc=esq">Aluno</a></div>
+                                    <div class="item"><a href="./base.php?pg=./cadastros/cadastro_professor.php&loc=esq">Professor</a></div>
+                                    <div class="item"><a href="./base.php?pg=./cadastros/cadastro_curso.php&loc=esq">Curso</a></div>
+                                    <div class="item"><a href="./base.php?pg=./cadastros/cadastro_disciplina.php&loc=esq">Disciplina</a></div>
+                                    <div class="item"><a href="./base.php?pg=./cadastros/cadastro_turma.php&loc=esq">Turma</a></div>
+                                </div>
+                            </div>
+                            <a class="item" href="./base.php?pg=./cadastros/cadastro_ocorrencia.php&loc=esq">Ocorrência</a>
+                            <div class="ui right dropdown item">
+                                Usuario
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <div class="item">Perfil</div>
+                                    <div class="item"><a href="login.php">Sair</div>
+                                </div>                               
+                            </div>
+                        </nav>
+                    </div>
+                                
+                    <div class="three wide column"></div>
+                </div>-->
                 
                 <?php                 
                     include_once 'class/menu.class.php';
                     $menu = new menu;
-                    /*$menu->setTipo($_SESSION['tipos']);
-                    $menu->exibeMen();
-                    $_COOKIE['teste'];
-                    setcookie('tipo',$_SESSION['tipos'],time()+3600);*/
+                    $tipo =$menu->getTipo();
+                    echo($tipo)
+                    //$menu->exibeMen($tipo);
                 ?>
                        
             </header>
@@ -52,15 +81,28 @@
                     
                         <div class="ten wide column">                            
                             <?php
-                                include_once 'class/login.class.php';
-                                $login = new login;
-                                $login->exibeTelaLogin();
+                                //include_once 'class/login.class.php';
+                                //$login = new login;
+                                //$login->exibeTelaLogin();
+
+                                //include_once 'cadastros/cadastro_aluno.php'; //erro
+                                //include_once 'cadastros/cadastro_curso.php';
+                                //include_once 'cadastros/cadastro_disciplina.php';
+                                //include_once 'cadastros/cadastro_ocorrencia.php'; //erro
+                                //include_once 'cadastros/cadastro_professor.php';
+
                                 
-                                /*include_once 'classes/divisao.php';
+                                //include_once 'listar/lista_alunos.php';
+                                //include_once 'listar/lista_cursos.php';
+                                //include_once 'listar/lista_disciplinas.php'; //erro
+                                //include_once 'listar/lista_professores.php';  //erro
+                                //include_once 'listar/lista_turmas.php';   //erro
+                                                                
+                                /*include_once 'class/divisao_conteudo.class.php';
                                 $layout = new divisao;
-                                $layout->setUser($_SESSION['tipos']);
+                                $layout->setUser($_SESSION['tipos']);*/
                                 
-                                $layout->setInclusao(filter_input(\INPUT_GET,'pg'));
+                                /*$layout->setInclusao(filter_input(\INPUT_GET,'pg'));
                                 $layout->setLocal(filter_input(\INPUT_GET,'loc'));
                                 $layout->divideLayout();
                             */

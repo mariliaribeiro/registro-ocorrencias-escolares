@@ -9,12 +9,13 @@
     </div>
     
     
-    <div class="field">    
+    <div class="field">
         <label>Oferta</label>
-        <select name="oferta">
-            <option>Anual</option>
-            <option>Semestral</option>
-        </select>
+        <?php
+            include_once 'class/curso.class.php';
+            $curso = new curso;
+            $curso->selectOferta();
+        ?>
     </div>
     
     <div class="field">

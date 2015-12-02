@@ -1,74 +1,59 @@
 <?php
 class login{
+/*------------------VAR------------------------*/
     private $login;
     private $senha;
-    private $fim;
-    function getFim() {
-        return $this->fim;
-    }
+    private $tipo;
 
-    function setFim($fim) {
-        $this->fim = $fim;
-    }
-
-        function getLogin() {
+/*------------------GET------------------------*/
+    function getLogin() {
         return $this->login;
     }
-
     function getSenha() {
         return $this->senha;
     }
+    function getTipo(){
+        return $this->tipo;
+    }
 
+/*------------------SET------------------------*/
     function setLogin($login) {
         $this->login = $login;
     }
-
     function setSenha($senha) {
         $this->senha = $senha;
     }
+    function setTipo($tipo){
+        $this->tipo = $tipo;
+    }
 
-    
+/*------------------DEMAIS FUNÇÕES------------------------*/
+    function efetuarLogin($colecao){
+        //echo $colecao;
+        $condicao = array("email" => $this->login);
+        $busca = $colecao->findone($condicao);
+        //print_r($busca);
+
+        session_start($busca['tipo']);                
+        $_SESSION['nome'] = $busca['nome'];
+        $_SESSION['email'] = $busca['email'];
+        $_SESSION['tipo'] = $busca['tipo'];
+        $type = $busca['tipo'];
+        $this->setTipo($type);
+
+        include_once 'menu.class.php';
+        $menu = new menu;
+        $menu->setTipo($type);
         
-    function efetuarLogin(){
-        include '../mongo/conexao.php';
-        $filtro = ['tipo' => ['$exists' => true], 'email'=>  $this->login];
-        $projecao = ['nome' => 1, 'email' => 1, 'senha' => 1,'tipo'=>1, '_id' => 0];
-        $cursor = $colecao->find($filtro, $projecao);        
-           foreach ($cursor as $campo) {
-               if(password_verify($this->senha, $campo['senha'])){
-                   //print'Oi senhor(a): '.$campo['nome'];
-                   session_start('professor');                
-                $_SESSION['nome'] = $campo['nome'];
-                $_SESSION['email'] = $campo['email'];
-                $_SESSION['tipo'] = $campo['tipo'];               
-                
-                $conexao->close();
-                echo'<meta http-equiv="refresh" content="3;url=http://localhost/web1/projeto/base.php">';
-                
-                echo' <script>
-                    // Check browser support
-                    if (typeof(Storage) !== "undefined") {
-                        // Store
-                        localStorage.setItem("lastname","';echo $_SESSION['nome'].'" );
-                        // Retrieve
-                        document.getElementById("result").innerHTML = localStorage.getItem("lastname");
-                    } else {
-                        document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
-                    }
-                    </script>';
-                
-               }                       
-           }
+        //echo('tipo: '.$this->getTipo());
+        echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/base.php">';
+        
     }
     
     function efetuarLogout(){
-        if($this->fim === '1'){
         session_destroy();
-        //echo $this->fim;
-        //header("location:http://localhost/ProgWebAraquari/proj/home.php");
-        echo'<meta http-equiv="refresh" content="2;url=http://localhost/ProgWebAraquari/proj/home.php">';
+        echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/base.php">';
         echo '<script> localStorage.clear()</script>';
-        }
     }
     
     function exibeTelaLogin(){
@@ -93,9 +78,7 @@ class login{
 
                  <button class="ui button" type="submit">Entrar</button>
 
-            </form>
-        ');
-
-        
+            </form>  
+        ');        
     }
 }

@@ -1,4 +1,4 @@
-<form class="ui form" name="enviar" method="post" action="../recebe_form/recebe_ocorrencia.php">
+<form class="ui form" name="enviar" method="post" action="recebe_form/recebe_ocorrencia.php">
         <h1 class="ui dividing header">Cadastro de Ocorrências</h1>
       
         <div class="ui label">
@@ -10,7 +10,7 @@
         <div class="field">
             <label>Professor</label>
             <div class="ui fluid icon input"> 
-                <input type="text" name="nome_professor" placeholder="Professor" value="<?php echo $_SESSION['nome'] ?>" required="required" readonly>
+                <input type="text" name="nome_professor" placeholder="Professor" value="<?php //echo $_SESSION['nome'] ?>" required="required" readonly>
                 <i class="write icon"></i>
             </div>
         </div>
@@ -45,18 +45,18 @@
             <div class="field">    
                 <label>Turma</label>
                 <?php
-                    include_once '../class/turma.class.php';           
-                    $turma = new turma;
-                    $turma->selectTurma();
+                    //include_once 'class/turma.class.php';           
+                    //$turma = new turma;
+                    //$turma->selectTurma();
                 ?>
             </div>
             
               <div class="field">                            
                 <label>Disciplina</label>
                 <?php
-                    include_once '../class/disciplina.class.php';           
-                    $disciplina = new disciplina;
-                    $disciplina->selectDisciplina();
+                    //include_once 'class/disciplina.class.php';           
+                    //$disciplina = new disciplina;
+                    //$disciplina->selectDisciplina();
                 ?>
             </div>
         </div>

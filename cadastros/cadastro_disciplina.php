@@ -1,4 +1,4 @@
-<form class="ui form" name="enviar" method="post" action="../recebe_form/recebe_disciplina.php">
+<form class="ui form" name="enviar" method="post" action="recebe_form/recebe_disciplina.php">
     <h1 class="ui dividing header">Cadastro de Disciplinas</h1>
   
     
@@ -20,7 +20,7 @@
     <div class="field">    
         <label>Curso</label>
         <?php
-            include_once '../class/curso.class.php';           
+            include_once 'class/curso.class.php';           
             $curso = new curso;
             $curso->selectCurso();
         ?>
@@ -28,11 +28,9 @@
     
     <div class="field">                            
         <label>Período de Oferta</label>
-        <select name="periodo_oferta"> 
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-        </select>
+        <?php
+            $curso->selectPeriodoOferta();
+        ?>
     </div>
     
     <button class="ui button" type="submit">Cadastrar</button>

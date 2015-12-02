@@ -63,3 +63,7 @@ footer{
 #barra-brasil {
     width: 100%;
 }
+
+.ui.inverted.menu .item>a:not(.ui){
+    color: #000;
+}

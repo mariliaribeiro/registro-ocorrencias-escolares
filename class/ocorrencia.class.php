@@ -79,7 +79,7 @@
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertCurso(){
-            include '../mongo/conexao.php';
+            include 'mongo/conexao.php';
             $query = array(
                         'tipo' => 'ocorrencia',
                         'nome_professor' => $this->nomeProf,
@@ -95,7 +95,7 @@
         }
 
         function updateOcorrencia(){
-            include '../mongo/conexao.php';
+            include 'mongo/conexao.php';
             
             $filtro = ['tipo' => 'ocorrencia','nome_professor'=>$this->nomeProf,'nome_aluno'=>$this->nomeAluno];
             $update = ['$set'=> ['turma'=>$this->turma,'disciplina'=>$this->disciplina,'descricao_ocorrencia'=>$this->ocorrencia]];

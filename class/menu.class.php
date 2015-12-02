@@ -10,9 +10,8 @@ class menu {
         $this->tipo = $tipo;
     }
 
-    function exibeMenu(){
-        
-        switch ($this->tipo) {
+    function exibeMenu($type){
+        switch ($type) {
             case 'professor' :
                 echo('
                 <div class="row menu">                    
@@ -33,7 +32,7 @@ class menu {
                             </div>
                             <a class="item" href="./base.php?pg=./cadastros/cadastro_ocorrencia.php&loc=esq">Ocorrência</a>
                             <div class="ui right dropdown item active item">
-                                <form class="navbar-form navbar-left" method="POST" role="search" action="obj/logout.php">');
+                                <form class="navbar-form navbar-left" method="POST" role="search" action=".">');
                                     echo($_SESSION['nome'].'
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
@@ -59,7 +58,7 @@ class menu {
                             <a class="item active">Home</a>
                             <a class="item" href="./base.php?pg=./visualizacoes/visualiza_ocorrencia.php&loc=esq">Visualizar Ocorrências</a>
                             <div class="ui right dropdown item active item">
-                                <form class="navbar-form navbar-left" method="POST" role="search" action="obj/logout.php">');
+                                <form class="navbar-form navbar-left" method="POST" role="search" action=".">');
                                     echo($_SESSION['nome'].'
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
@@ -78,6 +77,7 @@ class menu {
                 break;
             default:
                 echo('');
+                
         }
     }
 }

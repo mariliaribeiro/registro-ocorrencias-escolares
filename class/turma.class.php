@@ -52,7 +52,7 @@ class turma{
     }
 
     function updateAluno(){
-        include '../mongo/conexao.php';
+        include 'mongo/conexao.php';
         
         $filtro = ['tipo' => 'turma','turma'=>$this->turma];
         $update = ['$set'=> ['curso'=>$this->curso]];
@@ -63,23 +63,19 @@ class turma{
     }
 
     function listaTurmas() {
-        include '../mongo/conexao.php'; //insere o arquivo de conexão
+        include 'mongo/conexao.php'; //insere o arquivo de conexão
         $filter = array('tipo'=>'turma'); //filtra os dados com o tipo: curso
         $proje = array('turma' => 1, 'curso'=>1);//apresenta os dados desejados
         $cursor = $colecao->find($filter,$proje);//executa a consulta    
         
-        echo'<table class="tabela1">
-            <thead>
-                <tr><th colspan="4">Lista Turmas</th></tr>
-            </thead>
-            <tfoot>
-                <tr><td colspan="4">Base exemplo</td></tr>
-            </tfoot>
-            <tbody>
-            <tr>
-                    <td>Turma</td>
-                    <td>Curso</td>
-                </tr>';    
+        echo'<table class="ui fixed table">
+                    <thead>
+                        <tr>
+                            <th>Turma</th>
+                            <th>Curso</th>
+                        </tr>
+                    </thead>
+                    <tbody>';    
         foreach ($cursor as $campo) {
             echo'        
             
@@ -112,7 +108,7 @@ class turma{
     }
 
     function selectTurma(){
-        include '../mongo/conexao.php'; //insere o arquivo de conexão
+        include 'mongo/conexao.php'; //insere o arquivo de conexão
         $filter = array('tipo'=>'turma'); //filtra os dados com o tipo: curso
         $proje = array('_id' => 1, 'turma' => 1);//apresenta os dados desejados
         $cursor = $colecao->find($filter,$proje);//executa a consulta    

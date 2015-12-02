@@ -2,10 +2,11 @@
 
 include_once '../class/login.class.php';
 
-$exelog=new login;
+include '../mongo/conexao.php';
+$login=new login;
 
-$exelog->setLogin(filter_input(\INPUT_POST, 'email'));
-$exelog->setSenha(filter_input(\INPUT_POST, 'senha'));
-$exelog->efetuarLogin();
+$login->setLogin(filter_input(\INPUT_POST, 'email'));
+$login->setSenha(filter_input(\INPUT_POST, 'senha'));
+$login->efetuarLogin($colecao);
 
-unset($exelog);
+unset($login);

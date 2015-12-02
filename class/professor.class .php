@@ -44,7 +44,7 @@ class professor{
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertProfessor(){
-            include '../mongo/conexao.php';
+            include 'mongo/conexao.php';
 
             $senha=  password_hash($this->senha, PASSWORD_BCRYPT);
             $query = array(
@@ -80,7 +80,7 @@ class professor{
         }
         
         function updateProfessor(){
-            include '../mongo/conexao.php';
+            include 'mongo/conexao.php';
             
             $filtro = ['tipo' => 'professor','nome'=>$this->nome,'email'=>$this->email];
             $update = ['$set'=> ['cpf'=>$this->cpf,'matricula'=>$this->matricula]];
@@ -91,25 +91,21 @@ class professor{
         }
         
         function listaProfessores() {
-            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            include 'mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'professor'); //filtra os dados com o tipo: curso
             $proje = array('nome' => 1, 'email'=>1,'cpf'=>1, 'matricula'=>1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    
             
-            echo'<table class="tabela1">
-                <thead>
-                    <tr><th colspan="4">Lista Professores</th></tr>
-                </thead>
-                <tfoot>
-                    <tr><td colspan="4">Base exemplo</td></tr>
-                </tfoot>
-                <tbody>
-                <tr>
-                        <td>Nome</td>
-                        <td>E-mail</td>
-                        <td>CPF</td>
-                        <td>Matrícula</td>
-                    </tr>';    
+            echo'<table class="ui fixed table">
+                    <thead>
+                        <tr>
+                            <th>Nome</td>
+                            <th>E-mail</th>
+                            <th>CPF</th>
+                            <th>Matrícula</th>
+                        </tr>
+                    </thead>
+                    <tbody>';    
             foreach ($cursor as $campo) {
                 echo'        
                 
