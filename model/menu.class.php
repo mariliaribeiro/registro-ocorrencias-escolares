@@ -33,7 +33,7 @@ class menu {
                         <div class="ui right dropdown item">'.$_SESSION['nome'].'
                                     <i class="dropdown icon"></i>
                                     <div class="menu">
-                                        <div class="item">Perfil</div>
+                                        <a href="http://localhost/web1/projeto/template/perfil_professor.php"><div class="item">Perfil</div></a>
                                         <a href="http://localhost/web1/projeto/template/login.php"><div class="item">Sair</div></a>
                                     </div>
                         </div>
@@ -50,7 +50,7 @@ class menu {
                             <div class="ui right dropdown item">'.$_SESSION['nome'].'
                                         <i class="dropdown icon"></i>
                                         <div class="menu">
-                                            <div class="item">Perfil</div>
+                                            <a href="http://localhost/web1/projeto/template/perfil_aluno.php"><div class="item">Perfil</div></a>
                                             <a href="http://localhost/web1/projeto/template/login.php"><div class="item">Sair</div></a>
                                         </div>
                             </div>

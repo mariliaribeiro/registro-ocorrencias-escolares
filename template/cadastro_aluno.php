@@ -8,10 +8,10 @@ Cadastro de Alunos
 
     <form class="ui form" name="enviar" method="post" action="recebe_aluno.php">
         <h1 class="ui dividing header">Cadastro de Alunos</h1>
-        <!--div class="ui label">
+        <div class="ui label">
             <i class="wait icon"></i>
             <label id="dataHora" name="data"></label>
-        </div>-->
+        </div>
 
         <div class="field">
             <label>Nome</label>
@@ -45,6 +45,14 @@ Cadastro de Alunos
         </div>
 
         <div class="field">
+            <label>Senha</label>
+            <div class="ui left icon input">
+                <input type="password" name="senha" placeholder="Senha" required="required">
+                <i class="lock icon"></i>
+            </div>
+        </div>
+
+        <div class="field">
             <label>Matrícula</label>
             <div class="ui fluid icon input">
               <input type="text" name="matricula" placeholder="Matrícula" required="required">
@@ -53,11 +61,15 @@ Cadastro de Alunos
 
         <div class="field">    
             <label>Turma</label>
-            <?php
-                include_once '../model/turma.class.php';           
-                //$turma = new turma;
-                //$turma->selectTurma();
-            ?>
+            <select name="turma" id="select_turma" required>
+                <option>Selecione uma turma</option>
+
+                <?php
+                    include_once '../model/turma.class.php';           
+                    $turma = new turma;
+                    $turma->selectTurma();
+                ?>
+            </select>
         </div>                                
         <button class="ui button" type="submit">Cadastrar</button>
     </form>

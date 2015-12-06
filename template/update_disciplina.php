@@ -6,10 +6,9 @@ Listagem de Disciplinas
 
 <?php startblock('article') ?>
     <h1>Listagem de Disciplinas</h1>
-    <table class="ui compact celled definition table">
+    <table class="ui fixed table">
         <thead>
             <tr>
-                <th></th>
                 <th>Disciplina</th>
                 <th>Descrição</th>
             </tr>

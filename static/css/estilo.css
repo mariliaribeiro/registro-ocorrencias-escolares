@@ -71,3 +71,8 @@ footer{
 .ui.icon.message .icon:not(.close)+.content {
     text-align: left;
 }
+
+.abutton{
+    color: grey;
+}
+

@@ -6,7 +6,7 @@ Cadastro de Cursos
 
 <?php startblock('article') ?>
     <form class="ui form" name="enviar" method="post" action="recebe_turma.php">
-        <h1 class="ui dividing header">Cadastro de Cursos</h1>
+        <h1 class="ui dividing header">Cadastro de Turmas</h1>
         
         <div class="field">
             <label>Curso</label>

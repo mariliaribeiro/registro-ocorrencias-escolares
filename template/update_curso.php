@@ -1,28 +1,29 @@
 <?php include 'base.php' ?>
 
 <?php startblock('title') ?>
-Listagem de Disciplinas
+Listagem de Cursos
 <?php endblock('title') ?>          
 
 <?php startblock('article') ?>
-    <h1>Listagem de Disciplinas</h1>
-    <table class="ui compact celled definition table">
+    <h1>Listagem de Cursos</h1>
+
+    <table class="ui fixed table">
         <thead>
             <tr>
-                <th></th>
-                <th>Disciplina</th>
+                <th>Curso</th>
                 <th>Descrição</th>
             </tr>
         </thead>
             
         <tbody>
             <?php
-                include_once '../model/disciplina.class.php';
-                $disciplina = new disciplina;
-                $disciplina->getDisciplinas();
+                include_once '../model/curso.class.php';
+                $curso = new curso;
+                $curso->getCursos();
+                unset($curso);
             ?>
-
         </tbody>
     </table>
                 
 <?php endblock('article') ?>    
+

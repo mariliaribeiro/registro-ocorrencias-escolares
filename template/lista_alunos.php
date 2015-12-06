@@ -6,14 +6,12 @@ Listagem de Cursos
 
 <?php startblock('article') ?>
     <h1>Listagem de Alunos</h1>
-    <table class="ui fixed table">
+    <table class="ui compact celled definition table">
         <thead>
             <tr>
+                <th></th>
                 <th>Nome</th>
-                <th>E-mail</td>
-                <th>Data de Nascimento</th>
-                <th>Data de Matrícula</th>
-                <th>Matrícula</th>
+                <th>E-mail</th>
                 <th>Turma</th>
             </tr>
         </thead>
@@ -23,7 +21,6 @@ Listagem de Cursos
                 include_once '../model/aluno.class.php';
                 $aluno = new aluno;
                 $aluno->listaAlunos();
-                //unset($aluno);
             ?>
 
         </tbody>

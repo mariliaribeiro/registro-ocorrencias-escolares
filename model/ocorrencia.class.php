@@ -8,7 +8,7 @@
         private $matricula;
         private $turma;
         private $disciplina;
-        //private $hora;
+        private $hora;
         private $ocorrencia;
 
 /*------------------GET------------------------*/
@@ -36,9 +36,9 @@
             return $this->disciplina;
         }
 
-        /*function getHora(){
+        function getHora(){
             return $this->hora;
-        }*/
+        }
 
         function getOcorrencia(){
             return $this->ocorrencia;
@@ -69,17 +69,16 @@
             $this->disciplina = $disciplina;
         }
 
-        /*function setHora($hora){
+        function setHora($hora){
             $this->hora = $hora;
-        }*/
+        }
 
         function setOcorrencia($ocorrencia){
             $this->ocorrencia = $ocorrencia;
         }
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
-        function insertCurso(){
-            include '../mongo/conexao.php';
+        function insertOcorrencia($colecao){
             $query = array(
                         'tipo' => 'ocorrencia',
                         'nome_professor' => $this->nomeProf,
@@ -88,7 +87,7 @@
                         'matricula_aluno' => $this->matricula,
                         'turma' => $this->turma,
                         'disciplina' => $this->disciplina,
-                        /*'hora' => $this->hora,*/
+                        'hora' => date('d/m/Y  h:i:s');
                         'descricao_ocorrencia' => $this->ocorrencia); 
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');

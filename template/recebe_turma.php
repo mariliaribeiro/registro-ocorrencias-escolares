@@ -1,9 +1,11 @@
 <?php               
-    include_once '../class/curso.class.php';
-    $formulario= new curso;
+    include_once '../class/turma.class.php';
+    include '../mongo/conexao.php';
+    
+    $formulario= new turma;
                    
-    $formulario->setNomeTurma(filter_input(\INPUT_POST, 'nome_turma'));
-    $formulario->setOferta(filter_input(\INPUT_POST, 'curso'));                
-    //$formulario->apresentaDados();
-    $formulario->insertTurma();
+    $formulario->setTurma(filter_input(\INPUT_POST, 'nome_turma'));
+    //$formulario->setNomeCurso(filter_input(\INPUT_POST, 'curso'));                
+    
+    $formulario->insertTurma($colecao);
 ?>

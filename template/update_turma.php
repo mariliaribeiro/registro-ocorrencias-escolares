@@ -5,13 +5,11 @@ Listagem de Turmas
 <?php endblock('title') ?>          
 
 <?php startblock('article') ?>
-    <h1>Listagem de Turmas</h1>
-    <table class="ui compact celled definition table" id="tabela">
+<h1>Listagem de Turmas</h1>
+    <table class="ui fixed table">
         <thead>
             <tr>
-                <th></th>
                 <th>Turma</th>
-                <th>Curso</th>
             </tr>
         </thead>
             
@@ -20,10 +18,10 @@ Listagem de Turmas
                 include_once '../model/turma.class.php';
                 $turma = new turma;
                 $turma->getTurmas();
+                unset($turma);
             ?>
         </tbody>
-    </table>
-
+    </table>                        
 <?php endblock('article') ?>
                                    
 

@@ -31,6 +31,14 @@ Cadastro de Professores
         </div>
 
         <div class="field">
+            <label>Senha</label>
+            <div class="ui left icon input">
+                <input type="password" name="senha" placeholder="Senha" required="required">
+                <i class="lock icon"></i>
+            </div>
+        </div>
+
+        <div class="field">
             <label>Matrícula</label>
             <div class="ui fluid icon input">
               <input type="text" name="matricula" placeholder="Matrícula" required="required">

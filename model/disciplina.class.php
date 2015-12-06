@@ -36,36 +36,16 @@ class disciplina{
 	}
     
 /*------------------DEMAIS FUNÇÕES------------------------*/
-         function insertCurso(){
-            include '../mongo/conexao.php';
-
+        function insertCurso($colecao){
             $query = array(
-                        'tipo' => 'disciplina',
-                        'nome_disciplina' => $this->nome_disciplina,
-                        'descricao' => $this->descricao,
-                        'periodo_oferta' => $this->periodo_oferta
-                        'curso_oferta' => $this->curso_oferta); 
+                'tipo' => 'disciplina',
+                'nome_disciplina' => $this->nome_disciplina,
+                'descricao' => $this->descricao,
+                'periodo_oferta' => $this->periodo_oferta
+                'curso_oferta' => $this->curso_oferta); 
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
-            /*$filtro = ['nome_disciplina' => $this->nome_disciplina];
-            $projecao = ['nome_disciplina' => 1, '_id' => 0];
-            $cursor = $colecao->findOne($filtro, $projecao);
-            
-            if($this->nome_disciplina == $cursor['nome_disciplina']){
-                echo('
-                        <div class="ui red message">Disciplina já cadastrada!</div>
-                    ');
-            }  elseif($this->nome_disciplina !== $cursor['nome_disciplina']) {  
-                $query = array(
-                        'tipo' => 'disciplina',
-                        'nome_disciplina' => $this->nome_disciplina,
-                        'descricao' => $this->descricao,
-                        'periodo_oferta' => $this->periodo_oferta
-                        'curso_oferta' => $this->curso_oferta); 
-                $colecao->insert($query);
-                echo('Dados inseridos com sucesso!');
-            }*/
         }
 
         function updateDisciplinas(){
@@ -88,10 +68,12 @@ class disciplina{
             foreach ($cursor as $campo) {
                 echo('        
                     <tr>
+                        <td>
+                            <a href="http://localhost/web1/projeto/template/update_disciplina.php"><i class="edit icon"></i></a>
+                            <a href="http://localhost/web1/projeto/template/delete_disciplina.php"><i class="trash outline icon"></i></a>
+                        </td>
                         <td>'.$campo['nome_disciplina'].'</td>
                         <td>'.$campo['descricao'].'</td>
-                        <td>'.$campo['periodo_oferta'].'</td>
-                        <td>'.$campo['curso_oferta'].'</td>
                     </tr>');
             }
         }
@@ -135,20 +117,11 @@ class disciplina{
             $proje = array('_id' => 1, 'nome_disciplina' => 1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    
             
-            echo('
-                    <select name="disciplina" id="select_disciplina" required>
-                        <option>Selecione uma disciplina</option>'
-                );
-
             foreach ($cursor as $campo) {
                 echo('
                         <option value="'.$campo['_id'].'">'.$campo['nome_disciplina'].'</option>
                     ');
             }
-            
-            echo('
-                    </select>
-                ');
         }
 	}
 ?>

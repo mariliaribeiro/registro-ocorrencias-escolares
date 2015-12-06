@@ -63,11 +63,14 @@ Cadastro de Ocorrências
             
               <div class="field">                            
                 <label>Disciplina</label>
-                <?php
-                    //include_once '../model/disciplina.class.php';           
-                    //$disciplina = new disciplina;
-                    //$disciplina->selectDisciplina();
-                ?>
+                <select name="disciplina" id="select_disciplina" required>
+                    <option>Selecione uma disciplina</option>
+                    <?php
+                        //include_once '../model/disciplina.class.php';           
+                        //$disciplina = new disciplina;
+                        //$disciplina->selectDisciplina();
+                    ?>
+                </select>
             </div>
         </div>
         

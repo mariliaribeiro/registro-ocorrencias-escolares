@@ -58,9 +58,7 @@ class aluno{
     }
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
-        function insertAluno(){
-            include '../mongo/conexao.php';
-
+        function insertAluno($colecao){
             $senha=  password_hash($this->senha, PASSWORD_BCRYPT);
             $query = array(
                 'tipo' => 'aluno',
@@ -70,33 +68,11 @@ class aluno{
                 'data_nascimento' => $this->data_nascimento,
                 'data_matricula' => $this->data_matricula,
                 'matricula' => $this->matricula,
+                'data_matricula' => date('d/m/Y  h:i:s');
                 'turma' => $this->turma);
             $colecao->insert($query);
             echo('Dados gravados com sucesso');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
-            /*$filtro = ['nome' => ['$exists' => true], 'email' => $this->email];
-            $projecao = ['email' => 1, '_id' => 0];
-            $cursor = $colecao->findOne($filtro, $projecao);
-            
-            if($this->email == $cursor['email']){
-                echo('
-                        <div class="ui red message">E-mail já cadastrado!</div>
-                    ');
-            }  elseif($this->email !== $cursor['email']) {            
-                $senha=  password_hash($this->pwdP, PASSWORD_BCRYPT);
-                $query = array(
-                'tipo' => 'aluno',
-                'nome' => $this->nome,
-                'email' => $this->email,
-                'senha' => $senha,
-                'data_nascimento' => $this->data_nascimento,
-                'data_matricula' => $this->data_matricula,
-                'matricula' => $this->matricula,
-                'turma' => $this->turma);
-                $colecao->insert($query);
-                echo('Dados inseridos com sucesso!');
-            }*/
-        }
 
         function updateAluno(){
             include '../mongo/conexao.php';
@@ -120,11 +96,12 @@ class aluno{
                 echo('        
                 
                     <tr>
+                        <td>
+                            <a href="http://localhost/web1/projeto/template/update_aluno.php"><i class="edit icon"></i></a>
+                            <a href="http://localhost/web1/projeto/template/delete_aluno.php"><i class="trash outline icon"></i></a>
+                        </td>
                         <td>'.$campo['nome'].'</td>
                         <td>'.$campo['email'].'</td>
-                        <td>'.$campo['data_nascimento'].'</td>
-                        <td>'.$campo['data_matricula'].'</td>
-                        <td>'.$campo['matricula'].'</td>
                         <td>'.$campo['turma'].'</td>
                     </tr>');
             }
@@ -165,6 +142,43 @@ class aluno{
                     <div class="ui label">Turma</div>
                     <div class="ui fluid icon input">                            
                         <input type="text" name="turma" value="'.$this->turma.'" readonly>
+                    </div>
+                </div>
+            ');
+        }
+
+        function getPerfil(){
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $condicao = array("email" => $this->login);
+            $busca = $colecao->findone($condicao);
+        
+            echo('
+               <div class="field">
+                    <label>Nome</label>
+                    <div class="ui fluid icon input">                            
+                        <input type="text" name="nome" placeholder="Nome" value="'.$busca['nome'].'">
+                    </div>
+                </div>                                                               
+               
+                <div class="field">
+                    <label>CPF</label>
+                    <div class="ui fluid icon input">                         
+                        <input type="text" value="'.$busca['cpf'].'" name="cpf" placeholder="xxx.xxx.xxx-xx" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="14" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);">
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>E-mail</label>
+                    <div class="ui left icon input">
+                        <input type="text" name="email" placeholder="E-mail" value="'.$busca['email'].'">
+                        <i class="mail icon"></i>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>Matrícula</label>
+                    <div class="ui fluid icon input">
+                      <input type="text" name="matricula" placeholder="Matrícula" value="'.$busca['matricula'].'">
                     </div>
                 </div>
             ');

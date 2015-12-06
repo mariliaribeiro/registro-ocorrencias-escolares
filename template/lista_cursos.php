@@ -5,12 +5,13 @@ Listagem de Cursos
 <?php endblock('title') ?>          
 
 <?php startblock('article') ?>
-    <h1>Listagem de Cursos</h1> 
-    <table class="ui fixed table">
+    <h1>Listagem de Cursos</h1>
+
+   <table class="ui compact celled definition table">
         <thead>
             <tr>
+                <th></th>
                 <th>Curso</th>
-                <th>Oferta</th>
                 <th>Descrição</th>
             </tr>
         </thead>
@@ -20,7 +21,6 @@ Listagem de Cursos
                 include_once '../model/curso.class.php';
                 $curso = new curso;
                 $curso->getCursos();
-                //unset($curso);
             ?>
         </tbody>
     </table>
