@@ -18,18 +18,10 @@
         <script src="../static/js/js.js"></script>
         <script src="../../../repositorios_interface/semantic/dist/semantic.min.js"></script>
         <script src="../../../repositorios_interface/semantic/dist/components/dropdown.js"></script>
-        <script type="text/javascript" src="../../static/js/getDateTime.js"></script>
-        <script type="text/javascript" src="../../static/js/numeros.js"></script>
-        <script type="text/javascript" src="../../static/js/mascaraCPF.js"></script>
-        <script type="text/javascript" src="../../static/js/mascaraData.js"></script>
-        <script language="JavaScript" type="text/javascript">
-            $(document).ready(function(){
-                $("#singlebutton").on("click", null, function(){
-                    return confirm("Alterar registro?");
-                });
-
-            });
-        </script>
+        <script type="text/javascript" src="../static/js/getDateTime.js"></script>
+        <script type="text/javascript" src="../static/js/numeros.js"></script>
+        <script type="text/javascript" src="../static/js/mascaraCPF.js"></script>
+        <script type="text/javascript" src="../static/js/mascaraData.js"></script>
     </head>
 
     <body onload="javascript:getDateTime('dataHora');">

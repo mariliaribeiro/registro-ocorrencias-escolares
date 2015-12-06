@@ -22,18 +22,24 @@ Cadastro de Disciplinas
         
         <div class="field">    
             <label>Curso</label>
-            <?php
-                include_once '../model/curso.class.php';           
-                $curso = new curso;
-                $curso->selectCurso();
-            ?>
+            <select name="curso" id="select_curso" required>
+                    <option>Selecione um curso</option>
+                    <?php
+                        include_once '../model/curso.class.php';           
+                        $curso = new curso;
+                        $curso->selectCurso();
+                    ?>
+            </select>
         </div>
         
         <div class="field">                            
             <label>Período de Oferta</label>
-            <?php
-                $curso->selectPeriodoOferta();
-            ?>
+            <select name="periodo_oferta" id="select_perido_oferta" required>
+                    <option>Selecione um período</option>
+                    <?php
+                        $curso->selectPeriodoOferta();
+                    ?>
+            </select>
         </div>
         
         <button class="ui button" type="submit">Cadastrar</button>

@@ -1,5 +1,5 @@
 <?php               
-    include_once '../class/curso.class.php';
+    include_once '../model/curso.class.php';
     include '../mongo/conexao.php';
     
     $formulario= new curso;

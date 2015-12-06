@@ -10,11 +10,14 @@ Cadastro de Cursos
         
         <div class="field">
             <label>Curso</label>
-            <?php
-                include_once '../model/curso.class.php';
-                $curso = new curso;
-                $curso->selectCurso();
-            ?>
+            <select name="curso" id="select_curso" required>
+                    <option>Selecione um curso</option>
+                    <?php
+                        include_once '../model/curso.class.php';           
+                        $curso = new curso;
+                        $curso->selectCurso();
+                    ?>
+            </select>
         </div>
 
         <div class="field">

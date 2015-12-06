@@ -80,29 +80,43 @@
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertOcorrencia($colecao){
             $query = array(
-                        'tipo' => 'ocorrencia',
-                        'nome_professor' => $this->nomeProf,
-                        'nome_aluno' => $this->nomeAluno,
-                        'cpf_aluno' => $this->cpf
-                        'matricula_aluno' => $this->matricula,
-                        'turma' => $this->turma,
-                        'disciplina' => $this->disciplina,
-                        'hora' => date('d/m/Y  h:i:s');
-                        'descricao_ocorrencia' => $this->ocorrencia); 
+                'tipo' => 'ocorrencia',
+                'nome_professor' => $this->nomeProf,
+                'nome_aluno' => $this->nomeAluno,
+                'cpf_aluno' => $this->cpf,
+                'matricula_aluno' => $this->matricula,
+                'turma' => $this->turma,
+                'disciplina' => $this->disciplina,
+                'hora' => date('d/m/Y  h:i:s'),
+                'descricao_ocorrencia' => $this->ocorrencia); 
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
         }
 
-        function updateOcorrencia(){
-            include '../mongo/conexao.php';
+        function deleteOcorrencia($colecao, $id){
+            $colecao->remove(array('_id' => new MongoId($id)));
+            echo('Ocorrência removida com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_ocorrencias.php">';   
+        }
+
+        function updateOcorrencia($colecao, $id){
+            $query = $colecao->findone(array('_id' => $id));
+
+            $query['nome_professor'] = $this->nomeProf;
+            $query['nome_aluno'] = $this->nomeAluno;
+            $query['cpf_aluno'] = $this->cpf;
+			$query['matricula_aluno'] = $this->matricula;
+			$query['turma'] = $this->turma;
+			$query['disciplina'] = $this->disciplina;
+			$query['descricao_ocorrencia'] = $this->descricao_ocorrencia;
+			$query['hora'] = $query['hora'];
+            $query['tipo'] = 'ocorrencia';
+            $query['_id'] = $id;
             
-            $filtro = ['tipo' => 'ocorrencia','nome_professor'=>$this->nomeProf,'nome_aluno'=>$this->nomeAluno];
-            $update = ['$set'=> ['turma'=>$this->turma,'disciplina'=>$this->disciplina,'descricao_ocorrencia'=>$this->ocorrencia]];
-            $query = [$filtro, $update];
-            $colecao->update($query);
-            echo('Dados alterados com sucesso!');
-            
+            $colecao->save($query); //Atualiza o documento
+            echo('Ocorrência alterada com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_ocorrencias.php">';   
         }
 
         //apresentação dos dados na tela
@@ -158,6 +172,35 @@
                     </div>
                 </div>
             ');
+        }
+
+        function getOcorrencias() {
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $filter = array('tipo'=>'ocorrencia'); //filtra os dados com o tipo: curso
+            $proje = array('nome_aluno' => 1, 'descricao_ocorrencia'=>1, 'hora' => 1);//apresenta os dados desejados
+            $cursor = $colecao->find($filter,$proje);//executa a consulta
+
+            foreach ($cursor as $campo) {
+                echo'
+
+                    <tr>
+                        <td  class="collapsing">
+                            <div class="ui small basic icon buttons">
+                                <a href="http://localhost/web1/projeto/template/update_ocorrencia.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button"><i class="edit icon"></i></button>
+                                </a>
+                                
+                                <a href="http://localhost/web1/projeto/template/delete_ocorrencia.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button">
+                                        <i class="trash outline icon"></i></button>                                            
+                                </a>
+                            </div>
+                        </td>
+                        <td>'.$campo['hora'].'</td>
+                        <td>'.$campo['nome_aluno'].'</td>
+                        <td>'.$campo['descricao_ocorrencia'].'</td>
+                    </tr>';
+            }
         }
         
     }

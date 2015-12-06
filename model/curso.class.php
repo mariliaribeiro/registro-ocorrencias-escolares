@@ -33,21 +33,31 @@ class curso{
             $query = array(
                 'tipo' => 'curso',
                 'nome_curso' => $this->nome_curso,
-                //'oferta' => $this->oferta,
+                'oferta' => $this->oferta,
                 'descricao' => $this->descricao);
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
         }
 
-        function updateCurso(){
-            include '../mongo/conexao.php';
+        function deleteCurso($colecao, $id){
+            $colecao->remove(array('_id' => new MongoId($id)));
+            echo('Curso removido com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_cursos.php">';   
+        }
 
-            $filtro = ['tipo' => 'curso','nome_curso'=>$this->nome_curso];
-            $update = ['$set'=> ['oferta'=>$this->oferta,'descricao'=>$this->descricao]];
-            $query = [$filtro, $update];
-            $colecao->update($query);
-            echo('Dados alterados com sucesso!');
+        function updateCurso($colecao, $id){
+            $query = $colecao->findone(array('_id' => $id));
+
+            $query['nome_curso'] = $this->nome_curso;
+            $query['oferta'] = $this->oferta;
+			$query['descricao'] = $this->descricao;
+            $query['tipo'] = 'curso';
+            $query['_id'] = $id;
+            
+            $colecao->save($query); //Atualiza o documento
+            echo('Curso alterado com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_cursos.php">';   
         }
 
         function getCursos() {
@@ -60,9 +70,17 @@ class curso{
                 echo'
 
                     <tr>
-                        <td>
-                            <a href="http://localhost/web1/projeto/template/update_curso.php"><i class="edit icon"></i></a>
-                            <a href="http://localhost/web1/projeto/template/delete_curso.php"><i class="trash outline icon"></i></a>
+                        <td  class="collapsing">
+                            <div class="ui small basic icon buttons">
+                                <a href="http://localhost/web1/projeto/template/update_curso.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button"><i class="edit icon"></i></button>
+                                </a>
+                                
+                                <a href="http://localhost/web1/projeto/template/delete_curso.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button">
+                                        <i class="trash outline icon"></i></button>                                            
+                                </a>
+                            </div>
                         </td>
                         <td>'.$campo['nome_curso'].'</td>
                         <td>'.$campo['descricao'].'</td>
@@ -101,38 +119,23 @@ class curso{
             $filter = array('tipo'=>'curso'); //filtra os dados com o tipo: curso
             $proje = array('_id' => 1, 'nome_curso' => 1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta
-
-            echo('
-                    <select name="curso" id="select_curso" required>
-                        <option>Selecione um curso</option>'
-                );
-
             foreach ($cursor as $campo) {
                 echo('
                         <option value="'.$campo['_id'].'">'.$campo['nome_curso'].'</option>
                     ');
             }
-
-            echo('</select>');
         }
 
         function selectPeriodoOferta(){
-            echo('
-                    <select name="periodo_oferta" id="select_perido_oferta" required>
-                        <option>Selecione um período</option>'
-                );
             for ($i = 1; $i <= 10; $i++) {
                 echo('<option>'.$i.'</option>');
             }
-            echo('</select>');
         }
 
         function selectOferta(){
             echo('
-                    <select name="oferta">
-                        <option>Anual</option>
-                        <option>Semestral</option>
-                    </select>
+                    <option>Anual</option>
+                    <option>Semestral</option>
                 ');
         }
 	}

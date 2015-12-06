@@ -1,12 +1,10 @@
 <?php               
-    include_once '../class/curso.class.php';
+    include_once '../model/curso.class.php';
     include '../mongo/conexao.php';
-    
-    $formulario= new curso;
-                   
-    $formulario->setNomeCurso(filter_input(\INPUT_POST, 'nome_curso'));
-    $formulario->setOferta(filter_input(\INPUT_POST, 'oferta'));
-    $formulario->setDescricao(filter_input(\INPUT_POST, 'descricao_curso'));
-    
-    $formulario->insertCurso($colecao);
+
+    if (!empty($_GET['id'])) {
+        $id = $_GET['id'];
+        $curso = new curso;
+        $curso->deleteCurso($colecao, $id);
+    }
 ?>

@@ -20,41 +20,34 @@
         }    
 
     /*------------------DEMAIS FUNÇÕES------------------------*/
-        /*function insertTurma($colecao){
-            //$condicao = array("nome_turma" => $this->turma);
-            //$busca = $colecao->findone($condicao);
-
-            //if($this->turma != $cursor['turma']){
-                $query = array(
-                        'tipo' => 'turma'
-                        'nome_turma' => $this->turma);
-                        //'curso' => $this->curso);
-                $colecao->insert($query);
-                echo('Dados inseridos com sucesso!');
-                echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
-            //}else{
-                //echo('Não foi possível inserir registro, turma já cadastrada!');
-            //}
-        }*/
-
-        function updateAluno(){
-            include '../mongo/conexao.php';
-            
-            $filtro = ['tipo' => 'turma','nome_turma'=>$this->turma];
-            $update = ['$set'=> ['curso'=>$this->curso]];
-            $query = [$filtro, $update];
-            $colecao->update($query);
-            echo('Dados alterados com sucesso!');
-            
+        function insertTurma($colecao){
+            $query = array(
+                'tipo' => 'turma',
+                'nome_turma' => $this->turma,
+                'curso' => $this->curso);
+            $colecao->insert($query);
+            echo('Dados inseridos com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
         }
 
-        function deleteTurma($colecao, $id){
-            //$condicao = array("nome_turma" => $this->turma);
-            //$busca = $colecao->findone($condicao);
-            //$id = $cursor['_id'];
+         function deleteTurma($colecao, $id){
             $colecao->remove(array('_id' => new MongoId($id)));
             echo('Turma removida com sucesso!');
-            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_turmas.php">';
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_turmas.php">';   
+        }
+        
+        function updateTurma($colecao, $id){
+            $query = $colecao->findone(array('_id' => $id));
+
+            $query['nome_turma'] = $this->turma;
+            $query['curso'] = $this->curso;
+            $query['tipo'] = 'turma';
+            $query['_id'] = $id;
+            
+            $colecao->save($query); //Atualiza o documento
+            echo('Turma alterada com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_turmas.php">';   
+            
         }
 
         function getTurmas() {
@@ -65,14 +58,14 @@
             
             foreach ($cursor as $campo) {
                 echo('
-                        <tr data-id='.$campo['_id'].'>  
+                        <tr>  
                             <td  class="collapsing">
                                 <div class="ui small basic icon buttons">
-                                    <a class="abutton" href="update_turma.php?id='.$campo['_id'].'">
+                                    <a href="http://localhost/web1/projeto/template/update_turma.php?id='.$campo['_id'].'">
                                         <button class="ui button" type="button"><i class="edit icon"></i></button>
                                     </a>
                                     
-                                    <a class="abutton" href="delete_turma.php?id='.$campo['_id'].'">
+                                    <a href="http://localhost/web1/projeto/template/delete_turma.php?id='.$campo['_id'].'">
                                         <button class="ui button" type="button">
                                             <i class="trash outline icon"></i></button>                                            
                                     </a>

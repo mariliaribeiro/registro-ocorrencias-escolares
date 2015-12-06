@@ -46,7 +46,6 @@ class professor{
         function insertProfessor($colecao){
             $senha=  password_hash($this->senha, PASSWORD_BCRYPT);
             $query = array(
-                //'_id' => md5($this->nome),
                 'tipo' => 'professor',
                 'nome' => $this->nome,
                 'cpf' => $this->cpf,
@@ -90,9 +89,17 @@ class professor{
                 echo'
 
                     <tr>
-                        <td>
-                            <a href="http://localhost/web1/projeto/template/update_professor.php?id='.$campo['_id'].'"><i class="edit icon"></i></a>
-                            <a href="http://localhost/web1/projeto/template/delete_professor.php?id='.$campo['_id'].'"><i class="trash outline icon"></i></a>
+                        <td  class="collapsing">
+                            <div class="ui small basic icon buttons">
+                                <a href="http://localhost/web1/projeto/template/update_professor.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button"><i class="edit icon"></i></button>
+                                </a>
+                                
+                                <a href="http://localhost/web1/projeto/template/delete_professor.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button">
+                                        <i class="trash outline icon"></i></button>                                            
+                                </a>
+                            </div>
                         </td>
                         <td>'.$campo['nome'].'</td>
                         <td>'.$campo['email'].'</td>
@@ -136,6 +143,7 @@ class professor{
 
         function getPerfil(){
             include '../mongo/conexao.php'; //insere o arquivo de conexão
+            //$query = $colecao->findone(array('email' => $this->login));
             $condicao = array("email" => $this->login);
             $busca = $colecao->findone($condicao);
 

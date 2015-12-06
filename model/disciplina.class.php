@@ -36,28 +36,39 @@ class disciplina{
 	}
     
 /*------------------DEMAIS FUNÇÕES------------------------*/
-        function insertCurso($colecao){
+        function insertDisciplina($colecao){
             $query = array(
                 'tipo' => 'disciplina',
                 'nome_disciplina' => $this->nome_disciplina,
                 'descricao' => $this->descricao,
-                'periodo_oferta' => $this->periodo_oferta
+                'periodo_oferta' => $this->periodo_oferta,
                 'curso_oferta' => $this->curso_oferta); 
             $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
         }
 
-        function updateDisciplinas(){
-            include '../mongo/conexao.php';
-            
-            $filtro = ['tipo' => 'disciplina','nome_disciplina'=>$this->nome_disciplina];
-            $update = ['$set'=> ['descricao'=>$this->descricao,'periodo_oferta'=>$this->periodo_oferta,'curso_oferta'=>$this->curso_oferta]];
-            $query = [$filtro, $update];
-            $colecao->update($query);
-            echo('Dados alterados com sucesso!');
-            
+        function deleteDisciplina($colecao, $id){
+            $colecao->remove(array('_id' => new MongoId($id)));
+            echo('Disciplina removido com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_disciplinas.php">';   
         }
+
+        function updateDisciplina($colecao, $id){
+            $query = $colecao->findone(array('_id' => $id));
+
+            $query['nome_disciplina'] = $this->nome_disciplina;
+            $query['descricao'] = $this->descricao;
+			$query['periodo_oferta'] = $this->periodo_oferta;
+			$query['curso_oferta'] = $this->curso_oferta;
+            $query['tipo'] = 'disciplina';
+            $query['_id'] = $id;
+            
+            $colecao->save($query); //Atualiza o documento
+            echo('Disciplina alterado com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_disciplinas.php">';   
+        }
+
         
         function getDisciplinas() {
             include '../mongo/conexao.php'; //insere o arquivo de conexão
@@ -68,9 +79,17 @@ class disciplina{
             foreach ($cursor as $campo) {
                 echo('        
                     <tr>
-                        <td>
-                            <a href="http://localhost/web1/projeto/template/update_disciplina.php"><i class="edit icon"></i></a>
-                            <a href="http://localhost/web1/projeto/template/delete_disciplina.php"><i class="trash outline icon"></i></a>
+                        <td  class="collapsing">
+                            <div class="ui small basic icon buttons">
+                                <a href="http://localhost/web1/projeto/template/update_disciplina.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button"><i class="edit icon"></i></button>
+                                </a>
+                                
+                                <a href="http://localhost/web1/projeto/template/delete_disciplina.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button">
+                                        <i class="trash outline icon"></i></button>                                            
+                                </a>
+                            </div>
                         </td>
                         <td>'.$campo['nome_disciplina'].'</td>
                         <td>'.$campo['descricao'].'</td>

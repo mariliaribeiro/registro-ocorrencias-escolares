@@ -18,11 +18,13 @@ Cadastro de Cursos
         
         <div class="field">
             <label>Oferta</label>
-            <?php
-                include_once '../model/curso.class.php';
-                $curso = new curso;
-                $curso->selectOferta();
-            ?>
+                <select name="oferta">
+                    <?php
+                        include_once '../model/curso.class.php';
+                        $curso = new curso;
+                        $curso->selectOferta();
+                    ?>
+            </select>
         </div>
         
         <div class="field">

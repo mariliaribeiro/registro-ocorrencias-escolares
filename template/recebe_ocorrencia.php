@@ -1,8 +1,8 @@
 <?php               
-    include_once '../model/form.class.php';
+    include_once '../model/ocorrencia.class.php';
     include '../mongo/conexao.php';
     
-    $ocorrencia= new form;
+    $ocorrencia= new ocorrencia;
                    
     $ocorrencia->setNomeProf(filter_input(\INPUT_POST, 'nome_professor'));
     $ocorrencia->setNomeAluno(filter_input(\INPUT_POST, 'nome_aluno'));

@@ -3,6 +3,7 @@ class aluno{
     
 /*------------------VAR------------------------*/
 	private $nome;
+	private $cpf;
 	private $email;
     private $senha;
     private $data_nascimento;
@@ -14,6 +15,9 @@ class aluno{
 /*------------------GET------------------------*/
 	function getNome(){
 		return $this->nome;	
+	}
+	function getCpf(){
+		return $this->cpf;	
 	}
 	function getEmail(){
 		return $this->email;	
@@ -38,6 +42,9 @@ class aluno{
 	function setNome($nome){
 		return $this->nome = $nome;	
 	}    
+	function setCpf($cpf){
+		return $this->cpf = $cpf;	
+	}
 	function setEmail($email){
 		return $this->email = $email;	
 	}
@@ -63,47 +70,67 @@ class aluno{
             $query = array(
                 'tipo' => 'aluno',
                 'nome' => $this->nome,
+                'cpf' => $this->cpf,
                 'email' => $this->email,
                 'senha' => $senha,
                 'data_nascimento' => $this->data_nascimento,
-                'data_matricula' => $this->data_matricula,
                 'matricula' => $this->matricula,
-                'data_matricula' => date('d/m/Y  h:i:s');
+                'data_matricula' => date('d/m/Y  h:i:s'),
                 'turma' => $this->turma);
-            $colecao->insert($query);
-            echo('Dados gravados com sucesso');
+            echo('Dados inseridos com sucesso!');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
-
-        function updateAluno(){
-            include '../mongo/conexao.php';
-            
-            $filtro = ['tipo' => 'aluno','nome'=>$this->nome,'email'=>$this->email];
-            $update = ['$set'=> ['data_nascimento'=>$this->data_nascimento,'data_matricula'=>$this->data_matricula,'matricula'=>$this->matricula,'turma'=>$this->turma]];
-            $query = [$filtro, $update];
-            $colecao->update($query);
-            echo('Dados alterados com sucesso!');
-            
         }
 
-        function listaAlunos() {
-            include '../mongo/conexao.php'; //insere o arquivo de conexão
-            //include_once '../../mongo/conexao.php'; //insere o arquivo de conexão
-            $filter = array('tipo'=>'aluno'); //filtra os dados com o tipo: curso
-            $proje = array('nome' => 1, 'email'=>1,'data_nascimento'=>1,'data_matricula'=>1,'matricula'=>1,'turma'=>1);//apresenta os dados desejados
-            $cursor = $colecao->find($filter,$proje);//executa a consulta    
+        function deleteAluno($colecao, $id){
+            $colecao->remove(array('_id' => new MongoId($id)));
+            echo('Aluno removido com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_alunos.php">';   
+        }
+
+        function updateAluno($colecao, $id){
+            $query = $colecao->findone(array('_id' => $id));
+
+            $query['nome'] = $this->nome;
+			$query['email'] = $this->email;
+			$query['cpf'] = $this->cpf;
+			$query['senha'] = $this->senha;
+            $query['data_nascimento'] = $this->data_nascimento;
+            $query['matricula'] = $this->matricula;
+			$query['data_matricula'] = $query['data_matricula'];
+			$query['turma'] = $this->turma;
+            $query['tipo'] = 'aluno';
+            $query['_id'] = $id;
             
+            $colecao->save($query); //Atualiza o documento
+            echo('Aluno alterado com sucesso!');
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/lista_alunos.php">';   
+        }
+
+        function getAlunos() {
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $filter = array('tipo'=>'aluno'); //filtra os dados com o tipo: curso
+            $proje = array('nome' => 1, 'email'=>1,'turma'=>1);//apresenta os dados desejados
+            $cursor = $colecao->find($filter,$proje);//executa a consulta
+
             foreach ($cursor as $campo) {
-                echo('        
-                
+                echo'
                     <tr>
-                        <td>
-                            <a href="http://localhost/web1/projeto/template/update_aluno.php"><i class="edit icon"></i></a>
-                            <a href="http://localhost/web1/projeto/template/delete_aluno.php"><i class="trash outline icon"></i></a>
+                        <td  class="collapsing">
+                            <div class="ui small basic icon buttons">
+                                <a href="http://localhost/web1/projeto/template/update_aluno.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button"><i class="edit icon"></i></button>
+                                </a>
+                                
+                                <a href="http://localhost/web1/projeto/template/delete_aluno.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button">
+                                        <i class="trash outline icon"></i></button>                                            
+                                </a>
+                            </div>
                         </td>
                         <td>'.$campo['nome'].'</td>
                         <td>'.$campo['email'].'</td>
                         <td>'.$campo['turma'].'</td>
-                    </tr>');
+                    </tr>';
             }
         }
 

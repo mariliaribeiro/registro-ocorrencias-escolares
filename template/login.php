@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php include 'base.php' ?>
 
 <?php startblock('title') ?>

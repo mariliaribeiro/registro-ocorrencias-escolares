@@ -54,9 +54,9 @@ Cadastro de Ocorrências
                 <select name="turma" id="select_turma" required>
                     <option>Selecione uma turma</option>
                     <?php
-                        //include_once '../model/turma.class.php';           
-                        //$turma = new turma;
-                        //$turma->selectTurma();
+                        include_once '../model/turma.class.php';           
+                        $turma = new turma;
+                        $turma->selectTurma();
                     ?>
                 </select>
             </div>
@@ -66,9 +66,9 @@ Cadastro de Ocorrências
                 <select name="disciplina" id="select_disciplina" required>
                     <option>Selecione uma disciplina</option>
                     <?php
-                        //include_once '../model/disciplina.class.php';           
-                        //$disciplina = new disciplina;
-                        //$disciplina->selectDisciplina();
+                        include_once '../model/disciplina.class.php';           
+                        $disciplina = new disciplina;
+                        $disciplina->selectDisciplina();
                     ?>
                 </select>
             </div>

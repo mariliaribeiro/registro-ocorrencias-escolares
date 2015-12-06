@@ -1,7 +1,7 @@
 <?php include 'base.php' ?>
 
 <?php startblock('title') ?>
-Listagem de Professores
+Editar Professor
 <?php endblock('title') ?>          
 
 <?php startblock('article') ?>    
@@ -38,7 +38,7 @@ Listagem de Professores
     ?>
     
     <form class="ui form" name="enviar" method="post" action="update_professor.php">
-        <h1 class="ui dividing header">Atualiza de Professor</h1>
+        <h1 class="ui dividing header">Editar Professor</h1>
 
         <div class="field">
             <label>Identificação do Usuário</label>

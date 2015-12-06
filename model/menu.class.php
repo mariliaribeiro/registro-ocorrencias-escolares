@@ -27,6 +27,7 @@ class menu {
                                 <a href="http://localhost/web1/projeto/template/lista_cursos.php"><div class="item">Cursos</div></a>
                                 <a href="http://localhost/web1/projeto/template/lista_disciplinas.php"><div class="item">Disciplinas</div></a>
                                 <a href="http://localhost/web1/projeto/template/lista_turmas.php"><div class="item">Turmas</div></a>
+                                <a href="http://localhost/web1/projeto/template/lista_ocorrencias.php"><div class="item">Ocorrências</div></a>
                             </div>
                         </div>
                         <a class="item" href="http://localhost/web1/projeto/template/cadastro_ocorrencia.php">Ocorrência</a>
