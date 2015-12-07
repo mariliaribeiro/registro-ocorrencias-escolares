@@ -3,7 +3,6 @@ class login{
 /*------------------VAR------------------------*/
     private $login;
     private $senha;
-    private $tipo;
 
 /*------------------GET------------------------*/
     function getLogin() {
@@ -11,9 +10,6 @@ class login{
     }
     function getSenha() {
         return $this->senha;
-    }
-    function getTipo(){
-        return $this->tipo;
     }
 
 /*------------------SET------------------------*/
@@ -23,31 +19,26 @@ class login{
     function setSenha($senha) {
         $this->senha = $senha;
     }
-    function setTipo($tipo){
-        $this->tipo = $tipo;
-    }
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
     function efetuarLogin($colecao){
-        //echo $colecao;
         $condicao = array("email" => $this->login);
         $busca = $colecao->findone($condicao);
-        //print_r($busca);
-
-        session_start($busca['tipo']);                
-        $_SESSION['nome'] = $busca['nome'];
-        $_SESSION['email'] = $busca['email'];
-        $_SESSION['tipo'] = $busca['tipo'];
-        $type = $busca['tipo'];
-        $this->setTipo($type);
-        //echo('tipo: '.$this->getTipo());
-        echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
         
+        if(password_verify($this->senha, $busca['senha'])){
+            session_start($busca['tipo']);                
+            $_SESSION['nome'] = $busca['nome'];
+            $_SESSION['email'] = $busca['email'];
+            $_SESSION['tipo'] = $busca['tipo'];
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
+        }else{
+            echo('Senha incorreta!');
+            echo'<meta http-equiv="refresh" content=2;url="http://localhost/web1/projeto/template/login.php">';
+        }
     }
     
     function efetuarLogout(){
-        session_destroy();
-        echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
-        echo '<script> localStorage.clear()</script>';
+            session_destroy();
+            echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/login.php">';
     }
 }

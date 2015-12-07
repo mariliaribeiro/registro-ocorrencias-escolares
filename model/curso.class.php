@@ -88,32 +88,6 @@ class curso{
             }
         }
 
-        //apresentação dos dados na tela
-        function apresentaDados(){
-            echo('
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Curso</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="curso" value="'.$this->nome_curso.'" readonly>
-                    </div>
-                </div>
-
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Oferta</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="oferta" value="'.$this->oferta.'" readonly>
-                    </div>
-                </div>
-
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Descrição</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="descricao" value="'.$this->descricao.'" readonly>
-                    </div>
-                </div>
-            ');
-        }
-
         function selectCurso(){
             include '../mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'curso'); //filtra os dados com o tipo: curso
@@ -121,21 +95,21 @@ class curso{
             $cursor = $colecao->find($filter,$proje);//executa a consulta
             foreach ($cursor as $campo) {
                 echo('
-                        <option value="'.$campo['_id'].'">'.$campo['nome_curso'].'</option>
+                        <option value="'.$campo['nome_curso'].'">'.$campo['nome_curso'].'</option>
                     ');
             }
         }
 
         function selectPeriodoOferta(){
             for ($i = 1; $i <= 10; $i++) {
-                echo('<option>'.$i.'</option>');
+                echo('<option value="'.$i.'">'.$i.'</option>');
             }
         }
 
         function selectOferta(){
             echo('
-                    <option>Anual</option>
-                    <option>Semestral</option>
+                    <option value="Anual">Anual</option>
+                    <option value="Semestral">Semestral</option>
                 ');
         }
 	}

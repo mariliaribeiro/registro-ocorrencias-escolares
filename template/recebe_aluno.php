@@ -2,7 +2,7 @@
     include_once '../model/aluno.class.php';
     include '../mongo/conexao.php';
     
-    $formulario= new aluno;
+    $formulario = new aluno;
                    
     $formulario->setNome(filter_input(\INPUT_POST, 'nome'));
     $formulario->setCpf(filter_input(\INPUT_POST, 'cpf'));

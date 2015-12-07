@@ -202,6 +202,31 @@
                     </tr>';
             }
         }
+
+        function getOcorrenciasAluno($aluno) {
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $filter = array('tipo'=>'ocorrencia', 'nome_aluno' => $aluno); //filtra os dados com o tipo: curso
+            $proje = array('nome_aluno' => 1, 'descricao_ocorrencia'=>1, 'hora' => 1);//apresenta os dados desejados
+            $cursor = $colecao->find($filter,$proje);//executa a consulta
+            
+            foreach ($cursor as $campo) {
+                echo'
+
+                    <tr>
+                        <td  class="collapsing">
+                            <div class="ui small basic icon buttons">
+                                <a href="http://localhost/web1/projeto/template/detalhes_ocorrencia.php?id='.$campo['_id'].'">
+                                    <button class="ui button" type="button">Detalhes</button>
+                                </a>
+                            </div>
+                        </td>
+                        <td>'.$campo['hora'].'</td>
+                        <!--<td>'.$campo['nome_aluno'].'</td>-->
+                        <td>'.$campo['descricao_ocorrencia'].'</td>
+                    </tr>';
+            }
+            
+        }
         
     }
 ?>

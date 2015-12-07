@@ -107,65 +107,29 @@ class professor{
             }
         }
 
-
-        //apresentação dos dados na tela
-        function apresentaDados(){
-            echo('
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Nome</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="nome" value="'.$this->nome.'" readonly>
-                    </div>
-                </div>
-
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">CPF</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="cpf" value="'.$this->cpf.'" readonly>
-                    </div>
-                </div>
-
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">E-mail</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="email" value="'.$this->email.'" readonly>
-                    </div>
-                </div>
-
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Matrícula</div>
-                    <div class="ui fluid icon input">
-                        <input type="text" name="matricula" value="'.$this->matricula.'" readonly>
-                    </div>
-                </div>
-            ');
-        }
-
-        function getPerfil(){
+        function getPerfil($email){
             include '../mongo/conexao.php'; //insere o arquivo de conexão
-            //$query = $colecao->findone(array('email' => $this->login));
-            $condicao = array("email" => $this->login);
-            $busca = $colecao->findone($condicao);
+            $query = $colecao->findone(array('email' => $email));
 
             echo('
                <div class="field">
                     <label>Nome</label>
                     <div class="ui fluid icon input">
-                        <input type="text" name="nome" placeholder="Nome" value="'.$busca['nome'].'">
+                        <input type="text" name="nome" placeholder="Nome" value="'.$query['nome'].'" readonly>
                     </div>
                 </div>
 
                 <div class="field">
                     <label>CPF</label>
                     <div class="ui fluid icon input">
-                        <input type="text" value="'.$busca['cpf'].'" name="cpf" placeholder="xxx.xxx.xxx-xx" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="14" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);">
+                        <input type="text" value="'.$query['cpf'].'" name="cpf" placeholder="xxx.xxx.xxx-xx" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="14" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);" readonly>
                     </div>
                 </div>
 
                 <div class="field">
                     <label>E-mail</label>
                     <div class="ui left icon input">
-                        <input type="text" name="email" placeholder="E-mail" value="'.$busca['email'].'">
+                        <input type="text" name="email" placeholder="E-mail" value="'.$query['email'].'" readonly>
                         <i class="mail icon"></i>
                     </div>
                 </div>
@@ -173,7 +137,7 @@ class professor{
                 <div class="field">
                     <label>Matrícula</label>
                     <div class="ui fluid icon input">
-                      <input type="text" name="matricula" placeholder="Matrícula" value="'.$busca['matricula'].'">
+                      <input type="text" name="matricula" placeholder="Matrícula" value="'.$query['matricula'].'" readonly>
                     </div>
                 </div>
             ');

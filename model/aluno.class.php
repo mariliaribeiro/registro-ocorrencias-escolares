@@ -66,7 +66,7 @@ class aluno{
 
 /*------------------DEMAIS FUNÇÕES------------------------*/
         function insertAluno($colecao){
-            $senha=  password_hash($this->senha, PASSWORD_BCRYPT);
+            $senha =  password_hash($this->senha, PASSWORD_BCRYPT);
             $query = array(
                 'tipo' => 'aluno',
                 'nome' => $this->nome,
@@ -75,8 +75,9 @@ class aluno{
                 'senha' => $senha,
                 'data_nascimento' => $this->data_nascimento,
                 'matricula' => $this->matricula,
-                'data_matricula' => date('d/m/Y  h:i:s'),
+                'data_matricula' => date('d/m/Y h:i:s'),
                 'turma' => $this->turma);
+                $colecao->insert($query);
             echo('Dados inseridos com sucesso!');
             echo'<meta http-equiv="refresh" content=1;url="http://localhost/web1/projeto/template/home.php">';
         }
@@ -134,70 +135,29 @@ class aluno{
             }
         }
 
-        //apresentação dos dados na tela
-        function apresentaDados(){
-            echo('
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Nome</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="nome" value="'.$this->nome.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">E-mail</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="email" value="'.$this->email.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Data de Nascimento</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="data_nascimento" value="'.$this->data_nascimento.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Data de Matrícula</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="data_matricula" value="'.$this->data_matricula.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Turma</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="turma" value="'.$this->turma.'" readonly>
-                    </div>
-                </div>
-            ');
-        }
-
-        function getPerfil(){
+        function getPerfil($email){
             include '../mongo/conexao.php'; //insere o arquivo de conexão
-            $condicao = array("email" => $this->login);
-            $busca = $colecao->findone($condicao);
+            $query = $colecao->findone(array('email' => $email));
         
             echo('
                <div class="field">
                     <label>Nome</label>
                     <div class="ui fluid icon input">                            
-                        <input type="text" name="nome" placeholder="Nome" value="'.$busca['nome'].'">
+                        <input type="text" name="nome" placeholder="Nome" value="'.$query['nome'].'" readonly>
                     </div>
                 </div>                                                               
                
                 <div class="field">
                     <label>CPF</label>
                     <div class="ui fluid icon input">                         
-                        <input type="text" value="'.$busca['cpf'].'" name="cpf" placeholder="xxx.xxx.xxx-xx" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="14" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);">
+                        <input type="text" value="'.$query['cpf'].'" name="cpf" placeholder="xxx.xxx.xxx-xx" accesskey="c" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" title="xxx.xxx.xxx-xx" maxlength="14" onKeyPress="return numeros(event);" OnKeyUp="mascaraCPF(this);" readonly>
                     </div>
                 </div>
 
                 <div class="field">
                     <label>E-mail</label>
                     <div class="ui left icon input">
-                        <input type="text" name="email" placeholder="E-mail" value="'.$busca['email'].'">
+                        <input type="text" name="email" placeholder="E-mail" value="'.$query['email'].'" readonly>
                         <i class="mail icon"></i>
                     </div>
                 </div>
@@ -205,10 +165,21 @@ class aluno{
                 <div class="field">
                     <label>Matrícula</label>
                     <div class="ui fluid icon input">
-                      <input type="text" name="matricula" placeholder="Matrícula" value="'.$busca['matricula'].'">
+                      <input type="text" name="matricula" placeholder="Matrícula" value="'.$query['matricula'].'" readonly>
                     </div>
                 </div>
             ');
+        }
+
+        function selectAlunos(){
+            include '../mongo/conexao.php'; //insere o arquivo de conexão
+            $filter = array('tipo'=>'aluno'); //filtra os dados com o tipo: curso
+            $proje = array('nome' => 1, 'email'=>1,'turma'=>1);//apresenta os dados desejados
+            $cursor = $colecao->find($filter,$proje);//executa a consulta
+
+            foreach ($cursor as $campo) {
+                echo(' <option value="'.$campo['nome'].'">'.$campo['nome'].'</option>');
+            }
         }
 	}
 ?>

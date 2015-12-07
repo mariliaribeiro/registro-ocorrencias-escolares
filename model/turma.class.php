@@ -84,7 +84,7 @@
             $proje = array('_id' => 1, 'nome_turma' => 1);//apresenta os dados desejados
             $cursor = $colecao->find($filter,$proje);//executa a consulta    
             foreach ($cursor as $campo) {
-                echo(' <option value="'.$campo['_id'].'">'.$campo['nome_turma'].'</option>');
+                echo(' <option value="'.$campo['nome_turma'].'">'.$campo['nome_turma'].'</option>');
             }
         }
     }

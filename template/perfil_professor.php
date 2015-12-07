@@ -10,7 +10,7 @@ Perfil
         <?php
             include_once '../model/professor.class.php';
             $professor = new professor;
-            $professor->getPerfil();
+            $professor->getPerfil($_SESSION['email']);
             unset($professor);
         ?>
     </form>

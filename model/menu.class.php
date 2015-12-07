@@ -32,11 +32,11 @@ class menu {
                         </div>
                         <a class="item" href="http://localhost/web1/projeto/template/cadastro_ocorrencia.php">Ocorrência</a>
                         <div class="ui right dropdown item">'.$_SESSION['nome'].'
-                                    <i class="dropdown icon"></i>
-                                    <div class="menu">
-                                        <a href="http://localhost/web1/projeto/template/perfil_professor.php"><div class="item">Perfil</div></a>
-                                        <a href="http://localhost/web1/projeto/template/login.php"><div class="item">Sair</div></a>
-                                    </div>
+                            <i class="dropdown icon"></i>
+                            <div class="menu">
+                                <a href="http://localhost/web1/projeto/template/perfil_professor.php"><div class="item">Perfil</div></a>
+                                <a href="http://localhost/web1/projeto/template/executa_logout.php"><div class="item">Sair</div></a>
+                            </div>
                         </div>
                     </nav>
                 </div>
@@ -47,13 +47,13 @@ class menu {
                     <div class="row">
                         <nav class="ui inverted menu">
                             <a href="http://localhost/web1/projeto/template/home.php" class="item active">Home</a>
-                            <a class="item" href="http://localhost/web1/projeto/template/visualiza_ocorrencia.php">Visualizar Ocorrências</a>
+                            <a class="item" href="http://localhost/web1/projeto/template/visualiza_ocorrencias.php">Visualizar Ocorrências</a>
                             <div class="ui right dropdown item">'.$_SESSION['nome'].'
-                                        <i class="dropdown icon"></i>
-                                        <div class="menu">
-                                            <a href="http://localhost/web1/projeto/template/perfil_aluno.php"><div class="item">Perfil</div></a>
-                                            <a href="http://localhost/web1/projeto/template/login.php"><div class="item">Sair</div></a>
-                                        </div>
+                                <i class="dropdown icon"></i>
+                                <div class="menu">
+                                    <a href="http://localhost/web1/projeto/template/perfil_aluno.php"><div class="item">Perfil</div></a>
+                                    <a href="http://localhost/web1/projeto/template/executa_logout.php"><div class="item">Sair</div></a>
+                                </div>
                             </div>
                         </nav>
                     </div>

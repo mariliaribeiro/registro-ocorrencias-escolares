@@ -10,7 +10,7 @@ Perfil
         <?php
             include_once '../model/aluno.class.php';
             $aluno = new aluno;
-            $aluno->getPerfil();
+            $aluno->getPerfil($_SESSION['email']);
             unset($aluno);
         ?>
     </form>

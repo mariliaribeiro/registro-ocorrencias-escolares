@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php  require_once '../static/phpti-0.9/ti.php' ?>
 <html>
 
@@ -22,6 +23,7 @@
         <script type="text/javascript" src="../static/js/numeros.js"></script>
         <script type="text/javascript" src="../static/js/mascaraCPF.js"></script>
         <script type="text/javascript" src="../static/js/mascaraData.js"></script>
+        <script type="text/javascript" src="../static/js/setDadosAluno.js"></script>
     </head>
 
     <body onload="javascript:getDateTime('dataHora');">
@@ -36,15 +38,14 @@
                         </ul>
                     </div>
                 </div>
+
                 
                 <?php                 
                     include_once '../model/menu.class.php';
-                    //include_once 'model/login.class.php';
                     $menu = new menu;
-                    //$login = new login;
-                    //$tipo = $login->getTipo();
-                    //echo($tipo);
-                    $menu->exibeMenu('professor');
+                    $menu->exibeMenu($_SESSION['tipo']);                    
+                    //$_COOKIE['teste'];
+                    //setcookie('tipo',$_SESSION['tipo'],time()+3600);
                 ?>
             </header>
                         

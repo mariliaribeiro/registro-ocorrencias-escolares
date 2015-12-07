@@ -97,39 +97,6 @@ class disciplina{
             }
         }
 	
-        //apresentação dos dados na tela
-        function apresentaDados(){
-            echo('
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Disciplina</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="nome_disciplina" value="'.$this->nome_disciplina.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Descrição</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="descricao" value="'.$this->descricao.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Período de Oferta</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="periodo_oferta" value="'.$this->periodo_oferta.'" readonly>
-                    </div>
-                </div>
-                
-                <div class="field" style="padding: 0px 0px 10px 0px;">
-                    <div class="ui label">Curso</div>
-                    <div class="ui fluid icon input">                            
-                        <input type="text" name="curso_oferta" value="'.$this->curso_oferta.'" readonly>
-                    </div>
-                </div>
-            ');
-        }
-
         function selectDisciplina(){
             include '../mongo/conexao.php'; //insere o arquivo de conexão
             $filter = array('tipo'=>'disciplina'); //filtra os dados com o tipo: curso
@@ -138,7 +105,7 @@ class disciplina{
             
             foreach ($cursor as $campo) {
                 echo('
-                        <option value="'.$campo['_id'].'">'.$campo['nome_disciplina'].'</option>
+                        <option value="'.$campo['nome_disciplina'].'">'.$campo['nome_disciplina'].'</option>
                     ');
             }
         }

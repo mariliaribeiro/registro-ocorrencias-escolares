@@ -76,3 +76,11 @@ footer{
     color: grey;
 }
 
+button, html input[type=button], input[type=reset], input[type=submit]{
+    background: #fff;
+    border: 0px;
+}
+
+.ui.selection.dropdown{
+    width: 100%;
+}

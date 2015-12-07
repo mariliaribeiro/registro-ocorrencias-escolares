@@ -1,13 +1,11 @@
-<?php session_start(); ?>
 <?php include 'base.php' ?>
 
 <?php startblock('title') ?>
 Login
-<?php endblock('title') ?>  
+<?php endblock('title') ?>
 
 <?php startblock('article') ?>
-
-    <form class="ui form" name="enviar" method="post" role="form" action="recebe_login.php">
+    <form class="ui form" name="enviar" method="post" role="form" action="executa_login.php">
         <h1 class="ui dividing header">Login</h1>
 
         <div class="field">
@@ -20,13 +18,13 @@ Login
 
         <div class="field">
             <label>Senha</label>
-            <div class="ui fluid icon input">
+            <div class="ui left icon input">
               <input type="password" name="senha" placeholder="Senha" required="required">
+              <i class="lock icon"></i>
             </div>
         </div>
 
          <button class="ui button" type="submit">Entrar</button>
 
     </form>  
-
 <?php endblock('article') ?>
